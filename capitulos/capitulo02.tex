@@ -1,0 +1,149 @@
+
+	
+	\section{Estructura metodológica}
+	
+El principal objetivo de este trabajo es elaborar un método que permita aproximarse indirectamente a la distribución microespacial del ingreso monetario per cápita familiar de los hogares en la Aglomeración del Gran Buenos Aires (AGBA). Con ese norte en mente, se propone un diseño metodológico cuantitativo de corte macroeconómico en la medida en que busca analizar el ingreso para la AGBA en su conjunto, las determinantes de su magnitud y su distribución, pero al mismo tiempo pretende profundizar y alcanzar una escala microespacial, dado que pretende observar la encarnadura espacial de esta distribución para las unidades geográficas de menor tamaño para las que haya información disponible. Para cumplir este objetivo, el trabajo se propone construir, a partir de los datos disponibles, un índice que se aproxime al ingreso monetario per cápita familiar, ofrecer las validaciones estadísticas necesarias y calcular dicho estadístico para cada radio censal, de modo de poder concluir en la elaboración de un mapa de la distribución del ingreso para la AGBA. 
+
+Siguiendo la clave de lectura propuesta en el capítulo anterior para este objeto de estudio, este capítulo metodológico se estructura en tres partes. El primer apartado (\ref{cap2-tesoro}) procura plantear los desafíos metodológicos a la hora de analizar el ingreso, las fuentes de datos, instrumentos de recolección y las unidades de análisis. El segundo apartado (\ref{cap2-mapa}) pretende dar cuenta de los desafíos específicos a la hora de trabajar en el espacio urbano y su cartografía donde eventualmente se plasma el proceso social de la distribución del ingreso que se busca dilucidar. Finalmente, el tercer apartado (\ref{cap2-brujula}) intenta arrojar luz sobre el instrumental estadístico, metodológico y computacional que guía la búsqueda de este proceso analítico. 
+
+	\section{El Tesoro: los datos de ingreso, sus fuentes y las unidades de análisis}\label{cap2-tesoro}
+	
+Este apartado describirá el cómo se mide el ingreso, a través de qué instrumentos de recolección de datos (con las fortalezas y debilidades que sus diferentes diseños metodológicos utilizados conllevan), que elementos son relevados en cada uno y, finalmente, explicitar las unidades de análisis sobre las que este trabajo ofrecerá resultados.
+	
+	\subsection{Las fuentes de datos}
+La búsqueda de este trabajo cobra sentido a partir de una situación fundamental: los Censos Nacionales de Población, Hogares y Viviendas no relevan en sus instrumentos de recolección de datos el ingreso de las familias, en ninguna de sus dimensiones. De hacerlo, el Censo constituiría la mejor fuente para un estudio de la distribución personal del ingreso en la medida en que es una fuente de datos de ejecución continua, de \textbf{cobertura} prácticamente universal y con un alto grado de \textbf{granularidad geográfica}. La única debilidad es que, por ser precisamente un censo, conlleva la movilización de enormes recursos y solo puede hacerse con una \textbf{periodicidad} relativamente espaciada en el tiempo (10 años). 
+
+Sin embargo, esta no es la situación actual y, por lo tanto, la única fuente de información para medir los ingresos personales en todas sus variantes, procede de las encuestas a hogares sobre trabajo e ingresos. Las mismas conllevan un diseño muestral, en virtud del cual ofrecen una fortaleza allí donde el Censo registraba su debilidad: producen datos con mayor \textbf{periodicidad}. Ahora bien, el costo a pagar se manifiesta en términos de \textbf{cobertura}. Las encuestas no alcanzan la universalidad ni la \textbf{granularidad} del Censo. Éste último punto es central en la medida en que se procure llevar el análisis de la distribución espacial del ingreso a la escala microespacial. 
+
+Periodicidad y granularidad varían de acuerdo a qué encuesta se considere. Actualmente existen solo dos fuentes de información de este tipo con datos para el AGBA. Por un lado, la Encuesta Permanente de Hogares (EPH), llevada a adelante por la entidad de mayor jerarquía en el Sistema Estadístico Nacional: el Instituto Nacional de Estadísticas y Censos (INDEC), dependiente del Ministerio Nacional de Hacienda y Finanzas Públicas. Esta encuesta ofrece datos con una \textbf{periodicidad trimestral} y con \textbf{cobertura espacial} para 31 aglomerados urbanos (entre los que se encuentran el AGBA) \cite{indec2003f}. A su vez, en términos de \textbf{granularidad}, ofrece resultados a nivel de aglomerado como mayor nivel de \textbf{granularidad}. Por el otro, la Encuesta Anual de Hogares (EAH), a cargo de la Dirección de Estadística de la Ciudad Autónoma de Buenos Aires (la Dirección General de Estadística y Censos, dependiente del Ministerio de Hacienda del Gobierno de la Ciudad Autónoma de Buenos Aires), de \textbf{periodicidad} anual y con \textbf{cobertura espacial} solo para la Ciudad Autónoma, aunque con mayor nivel de \textbf{granularidad} (ya que arroja resultados representativos por Comuna) \cite{eah}.
+
+\begin{table}[h!]
+	\centering
+	\caption{Comparación de cobertura y periodicidad entre Censos y Encuestas }
+	\label{tab:table1}
+	\begin{tabular}{l|l|l|l}
+		Fuente & Periodicidad & Cobertura Espacial & Desagregación geográfica\\
+		\hline
+		Censo & Cada 10 años & Universal & Radio censal\\
+		\hline
+		EPH & Trimestral & 31 Aglomerados urbanos & Aglomerado urbano\\
+		\hline
+		EAH & Anual & CABA & Comuna\\
+	\end{tabular}
+\end{table}
+
+Por lo tanto, dadas las fortalezas y debilidades de cada fuente, el objetivo fue complementarlas. Se procuró obtener una metodología que permita, a partir de los datos presentes en todas las fuentes, aproximarse al ingreso monetario per cápita familiar. Por un lado, las fuentes que contaban con una métrica de este ingreso (encuestas), sirvieron de base para elaboración del modelo. Del otro lado, se corrió el modelo utilizando la información censal.
+
+Para poder llevar adelante esta tarea, era necesario constatar, en primer lugar, que la cobertura temática de las fuentes era lo suficientemente equivalente como para permitir comparabilidad: en segundo lugar, se hizo necesario explicitar las diferentes unidades de análisis para cada grupo de actividades. Estos dos puntos son abordados en los siguientes apartados. 
+
+Por último, es necesario elaborar una aclaración. Dado que la EAH del GCBA no ofrece resultados más allá de la CABA, no se puede utilizar para dar cuenta de la situación del ingreso en el AGBA. De todos modos, en la medida en que los resultados de la EPH para el periodo de estudio fueron puestos en duda recientemente, la presencia de la EAH se mantiene con el propósito de observar el desempeño de la metodología propuesta en este trabajo para ambas fuentes. De este modo se puede ofrecer una contribución al debate sobre la validez de la EPH, al mismo tiempo que se salvaguardan los resultados obtenidos en este trabajo \cite{indec2016}.
+
+
+	\subsection{Comparabilidad en la cobertura temática de las fuentes}
+	
+En función de los debates sobre los determinantes del ingreso en los hogares mencionados en los \textit{Antecedentes} y en el \textit{Marco Teórico}, se pueden recuperar las siguientes dimensiones de las características de las familias y hogares que puedan servir como una aproximación del ingreso.
+ 
+\begin{itemize}
+	\item Dimensión de la familia
+	\item Nivel de instrucción 
+	\item Etapa del ciclo de vida
+	\item Inserción en el mercado laboral 
+\end{itemize}
+
+Estas dimensiones se encuentran presentes tanto en el Censo como en la EPH. El Censo 2010 contó con formulairo basico y con uno extendido que se aplico de manera muestral. como se uqiere obtener resultados par anivel de radio censal, la maxima ranularidad posible, entonces no se pude utilizar el extendido, solamente el basico. La tabla a continuacion resume las variables presentes en el cuestionario basico del censo y en el utilizado para la EPH.
+	
+\begin{table}[h!]
+	\caption{Variables comparables en Censo y EPH}
+	\label{tab:table2}	
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{l|l}
+		\textbf{CENSO} & \textbf{EPH} \\
+		\hline
+		P01 - Relación de parentesco                               & CH03 - Relación de Parentesco      \\
+		P02 - Sexo                                                 & CH04 - Sexo       \\
+		P05 - País de nacimiento                                   & CH15 - País de nacimiento\\
+		P03 - Edad                                                 & CH06 - Edad       \\
+		P08 - Asiste o asistió a un establecimiento educativo      & CH10 - Asiste o asistió a un establecimiento educativo     \\
+		P09 - Nivel educativo que cursa o cursó                    & CH12 - Nivel educativo que cursa o cursó   \\     
+		P10 - Completó ese nivel                                   & CH13 - Completó ese nivel        \\
+		P11A- Ultimo grado que aprobó en ese nivel                 & CH14 - Último grado que aprobó en ese nivel \\       
+		CONDACT - Condición de actividad                           & ESTADO - Condición de actividad      	\\
+		\end{tabular}}
+	\end{table}	
+	
+
+Estas dimensiones fueron retomadas operativamente por los desarrollos de CEPAL y CELADE, y nutrieron el desarrollo por parte de INDEC del Índice de Privación Material de los Hogares (IPMH) \cite{indec2000b,indec2003a,indec2003b,indec2003c,indec2003d,alvarez2002}.
+
+El mismo da cuenta de dos dimensiones de la privación material: la patrimonial y la corriente. Cada una de las dimensiones cuenta, respectivamente, con su sub índice que hacen referencia a las condiciones de la vivienda y el segundo explícitamente a la capacidad económica de los hogares (CONDHAB y CAPECO), siendo este último el que es de verdadero interés para los objetivos de este trabajo. En la medida en que procura elaborar un método que permita aproximarse indirectamente a la distribución microespacial del ingreso de los hogares, el índice NBI, a pesar de que ofrece resultados para los niveles geográficos deseados, sólo permite registrar situaciones de pobreza estructural, haciendo caso omiso de las otras posiciones en la distribución del ingreso \cite{indec1984,indec1996}. En ese sentido, CAPECO ofrece elementos para la construcción de un índice que se aproxime al ingreso en toda su extensión más allá de una categorización binaria de pobre - no pobre. En ese sentido tampoco se utiliza en este trabajo una medida de umbral para considerar privación como lo hace el IPMH, sino que se mantiene el CAPECO
+
+Las variables tomadas por el CAPECO de los miembros del hogar, en base al paradigma del capital humano y en sintonía con las destacadas por los desarrollos teóricos sobre la desigual distribución espacial del ingreso, constituyen a priori las variables teóricamente de interés a la hora de abordar una aproximación al ingreso de los hogares. Las mismas son el tamaño familiar en términos de adultos equivalentes para respetar las economías de escala del hogar, edades, condición de actividad y años de escolaridad de los integrantes del hogar.
+
+Estas son las variables que se tomarán en consideración a la hora de elaborar un nuevo modelo propio que pueda tomar los datos arrojados por el Censo 2010. No solo con el propósito de actualizar estos datos, sino a su vez para adaptar el modelo a los cambios que se han registrado en el formulario de recolección del Censo.
+
+Estas variables se combinan siguiendo la metodología propuesta por el índice CAPECO \cite{indec2003c}:
+
+$$ CAPECO = \frac{\displaystyle\sum_{i=1}^{n}(CP_i * VAE_i)}{\displaystyle\sum_{i=1}^{n}Aeq_i} $$
+
+donde:
+\begin{itemize}
+	\item n: total de integrantes del hogar
+	\item CP: condición de percepción (asume distintos valores según la condición de actividad, la edad, el sexo y el lugar de residencia)
+	\item VAE: valor de los años de escolaridad invertidos en el mercado laboral
+	\item Aeq: valor en unidades de adulto equivalente de cada integrante del hogar (varía de acuerdo al sexo y la edad, siguiendo una tabla de necesidades calóricas y nutricionales)
+\end{itemize}
+
+
+El censo nacional de 2001 reconocía dos tipos de perceptores de ingresos, las personas que están ocupadas y consecuentemente percibirían una retribución monetaria por su trabajo y las personas jubiladas o pensionadas que reciben transferencias de la Seguridad Social. Por lo tanto quedaban excluidos del relevamiento los perceptores de rentas y transferencias. Frente a esta situación hay que hacer dos aclaraciones. La primera es que en la medida en que este trabajo no toma en consideración las fuentes funcionales de ingreso, concentrándose en la distribución personal del mismo, no es un problema que el censo no registre las fuentes del mismo. Quedará por determinar, en función de la información disponible, los parámetros del modelo y los desarrollos teóricos del capital humano y la desigual distribución espacial del ingreso, el papel que desempeñan los inactivos en la distribución del ingreso, y si los retornos a la escolaridad ofrecen información suficiente para aproximarse al ingreso de los inactivos. En segundo lugar, para los inactivos el censo de 2010 no registra en el cuestionario básico si la población inactiva percibe o no jubilación o pensión.
+
+Se ofrecen mayores precisiones sobre el modelo detrás del CAPECO, así como también sobre su metodología y parámetros, en otro apartado de este capítulo (\ref{cap2-modeloCapeco}). Se ofrece una descripción sucinta en este momento, con el objetivo de hacer una breve presentación del modo en que las variables consideradas se interrelacionan entre sí en pos de ofrecer una aproximación al ingreso monetario per cápita familiar. 
+
+	
+	\subsection{Las unidades de análisis}
+	
+El presente trabajo cuenta con dos etapas bien definidas. En la primera se parte de considerar los datos provistos por la EPH para elaborar un modelo que pueda dar cuenta de los ingresos de las familias en el AGBA. En la segunda, se implementa ese modelo en base a los datos del último Censo, obteniendo resultados para el mayor grado de granularidad posible, es decir el radio censal.
+
+En este sentido, si bien en todos los casos las unidades de observación son las personas, en la primera parte son los hogares las que constituyen la unidad de análisis, mientras que en la segunda parte este lugar lo ocupan los radios censales del AGBA. 
+	
+Existe una diferencia entre familia y hogares que, en este punto, es necesario aclarar. Para ello se tomará como base las definiciones utilizadas en el Censo Nacional de Población, Hogares y Vivienda de 2010 \cite{indec2012}, dado que constituye la principal fuente de información para este trabajo. 
+
+"Hogar y familia son conceptos diferentes. El hogar particular constituye una unidad socioeconómica formada por individuos que viven juntos y conforman una unidad de consumo. La familia es, en cambio, una unidad social, biológica y jurídica. En los censos de población argentinos, el hogar particular constituye una unidad de empadronamiento, en cambio, la familia se reconstruye por procesamiento a partir de la información derivada de las preguntas “relación de parentesco con el jefe/a del hogar” y “situación conyugal”. Si bien la mayoría de los hogares están conformados por familias, la familia puede no coincidir con el hogar censal, ya sea porque sus miembros están viviendo habitual o circunstancialmente en otros hogares o porque en el hogar hay personas que no son miembros de la familia. El censo permite caracterizar los hogares y las familias a partir de variables demográficas y sociales que son relevantes, como la conyugalidad. Constituye una importante ventaja el hecho de que desde 1960 se indaga por la totalidad de las uniones conyugales y no sólo por las legales" \cite[p~38]{indec2012}.
+
+El hogar queda definido como la persona o grupo de personas que viven bajo el mismo techo y comparten los gastos de alimentación \cite[p~334]{indec2012}. Los hogares tienen un correlato espacial: la vivienda. Ésta se define como el espacio donde viven personas, que se hallan separadas por paredes u otros elementos cubiertos por un techo y sus ocupantes pueden entrar o salir sin pasar por el interior de otras viviendas \cite[p~338]{indec2012}. Existe cierto nivel de desacople en estos niveles en la medida en que dentro de una vivienda pueden cohabitar más de un hogar (a la vez no existe perfecto acople entre familia y hogar), aunque esta no es la situación generalizada.
+	
+En relación a la unidad de análisis de la segunda parte, los radios censales estos "representan unidades de organización del trabajo de campo en la operatoria de relevamiento censal y por lo tanto son delimitados por los organismos responsables de cada provincia en función de razones de conveniencia práctica y no por responder a criterios sociales significativos" \cite[p~630]{robirosa} . 
+
+El hecho de que el diseño de fracciones y radios no responda a fines investigativos, trae aparejados varios inconvenientes, como son su heterogeneidad en superficie, forma y cantidad de población, y el llamado "problema de la unidad espacial modificable" (PUEM) \cite{openshaw1977,openshaw1984}, que hace alusión al hecho de que la división del territorio puede no reflejar –y hasta encubrir– la realidad socio-territorial \cite{marcos2012}. 
+
+
+
+	\section{MAPA: cartografia}\label{cap2-mapa}
+	
+	Citar trabajo de mariana, cartografia, zona urbana, etc
+	
+	\section{BRUJULA: los modelos de regresión múltiple y el CAPECO}\label{cap2-brujula}
+
+	\subsection{Modelos de regresión múltiples}
+
+Breve explicación de los modelos de regresión múltiple en general y los parámetros al usar variables de contexto o dummies.
+	
+	\subsection{El modelo detrás del indice CAPECO} \label{cap2-modeloCapeco}
+
+	Explicar los modelos detrás de CAPECO y 
+
+
+
+
+	\section{Desafios metodológicos}
+
+imputacion de valores en EPH
+Fuentes de informacion (dudas sobre la EPH, Censo)
+Base cartografica para el AGBA a construir
+No hay vector de probabilidades de inclusión en EPH por secreto estadístico
+Radios censales - Unidades gepgráficas modificables
+dos cuestionarios, uno ampliado muestral con jubilacion (Metodología art INVI en prensa.docx)
+	
+	\section{Instrumentos computacionales}
+	- REDATAM
+	- R
+	- Python
+	- QGIS
