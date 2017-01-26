@@ -184,6 +184,10 @@ apacite.pdf
 tesis.pdf
 tesis/
 data/
+apacite/
+apacite.dtx
+apacite.ins
+apacite.sty
 
 #PYTHON
 #pickle objects
