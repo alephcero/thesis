@@ -11,6 +11,7 @@ Siguiendo la clave de lectura propuesta en el capítulo anterior para este objet
 Este apartado describirá el cómo se mide el ingreso, a través de qué instrumentos de recolección de datos (con las fortalezas y debilidades que sus diferentes diseños metodológicos utilizados conllevan), que elementos son relevados en cada uno y, finalmente, explicitar las unidades de análisis sobre las que este trabajo ofrecerá resultados.
 	
 	\subsection{Las fuentes de datos}
+	
 La búsqueda de este trabajo cobra sentido a partir de una situación fundamental: los Censos Nacionales de Población, Hogares y Viviendas no relevan en sus instrumentos de recolección de datos el ingreso de las familias, en ninguna de sus dimensiones. De hacerlo, el Censo constituiría la mejor fuente para un estudio de la distribución personal del ingreso en la medida en que es una fuente de datos de ejecución continua, de \textbf{cobertura} prácticamente universal y con un alto grado de \textbf{granularidad geográfica}. La única debilidad es que, por ser precisamente un censo, conlleva la movilización de enormes recursos y solo puede hacerse con una \textbf{periodicidad} relativamente espaciada en el tiempo (10 años). 
 
 Sin embargo, esta no es la situación actual y, por lo tanto, la única fuente de información para medir los ingresos personales en todas sus variantes, procede de las encuestas a hogares sobre trabajo e ingresos. Las mismas conllevan un diseño muestral, en virtud del cual ofrecen una fortaleza allí donde el Censo registraba su debilidad: producen datos con mayor \textbf{periodicidad}. Ahora bien, el costo a pagar se manifiesta en términos de \textbf{cobertura}. Las encuestas no alcanzan la universalidad ni la \textbf{granularidad} del Censo. Éste último punto es central en la medida en que se procure llevar el análisis de la distribución espacial del ingreso a la escala microespacial. 
@@ -116,15 +117,158 @@ El hecho de que el diseño de fracciones y radios no responda a fines investigat
 
 
 
-	\section{MAPA: cartografia}\label{cap2-mapa}
+	\section{El Mapa: cartografía de la AGBA}\label{cap2-mapa}
 	
-	Citar trabajo de mariana, cartografia, zona urbana, etc
+Se entiende por AGBA, desde el punto de vista de límites físicos, "al área geográfica delimitada por la 'envolvente de población'; lo que también suele denominarse 'mancha urbana'" \cite{indec2003e}. A su vez, se entiende por "envolvente de población" una línea que marca el límite hasta donde se extiende la continuidad de viviendas urbanas \cite{indec2003e}. De acuerdo con Vapñarsky, la "mancha urbana" se define como la concentración de edificios vinculados entre sí por calles \cite{vapniarsky1995,vapniarsky1998}. Desde el punto de vista funcional, se define como la "entidad urbana", que es ámbito de desplazamientos cotidianos de la población, en especial de movimientos pendulares de la población económicamente activa entre su lugar de residencia y el de trabajo \cite{bertoncello,torres1990}. Este criterio de delimitación se mueve con el tiempo y, por cierto, no respeta las delimitaciones administrativas de los municipios.  Estas peculiaridades y complicaciones que implica trabajar con unidades espaciales, serán consideradas con mayor precisión en el apartado metodológico. Tal cual la configuración que la Aglomeración Gran Buenos Aires asume en 2010, el mismo abarca la Ciudad de Buenos Aires y se extiende sobre el territorio de la Provincia de Buenos Aires, integrando la superficie total de 14 partidos, más la superficie parcial de otros 16 (esto sin contar una muy pequeña participación de los partidos de Cañuelas y La Plata).
 	
-	\section{BRUJULA: los modelos de regresión múltiple y el CAPECO}\label{cap2-brujula}
+	
+	
+\section{La Brújula: los modelos de regresión múltiple y el CAPECO}\label{cap2-brujula}
 
-	\subsection{Modelos de regresión múltiples}
+\subsection{Modelos de regresión múltiples}
 
-Breve explicación de los modelos de regresión múltiple en general y los parámetros al usar variables de contexto o dummies.
+El modelo de regresión múltiple \cite{wooldridge,hastie} es un modelo matemático que consiste en poder inferir o aproximar el valor de una variable $Y$ (variable dependiente o regresando) dada una serie de valores en otras variables $X_i$ (variables independientes o regresores) y un término aleatorio $u$. La relación de cada regresor con el regresando queda explicitada en los parámetros $\beta_k$.
+
+Formalmente un modelo de regresión múltiple puede expresarse del siguiente modo.
+
+$$y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_k x_k + u$$
+
+donde
+
+$y:$ variable dependiente o regresando
+
+$x_n:$ variables independientes o regresores
+
+$\beta_0:$ intercepto o término constante 
+
+$\beta_n:$ parámetros o coeficientes 
+
+$u:$ término aleatorio o error
+
+
+\subsubsection{Estimación de los parámetros del modelo} 
+
+Uno de los principales métodos consiste en el método de mínimos cuadrados que elige los parámetros de modo tal que el valor estimado por el modelo para el regresando $y$ tenga el menor error. Esto se logra al minimizar la suma de los errores cuadrados, de moto tal que si:
+
+$$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x_1 + \hat{\beta}_2 x_2 + ... + \hat{\beta}_k x_k$$
+
+La suma de residuales cuadrados ($SRC$) a minimizar queda definida como 
+
+$$SRC = \sum_{i=1}^{n}(y_i - \hat{\beta}_0 + \hat{\beta}_1 x_{i1} + \hat{\beta}_2 x_{i2} + ... + \hat{\beta}_k x_{ik})^2$$
+
+Existe una forma matricial de aproximarse a la determinación de los parámetros. La misma postula que se tiene un sistema de ecuaciones con un vector $Y$ de resultados, una matriz $X$ con los datos de las variables y un vector de errores $\varepsilon$. 
+
+$$y_{i}=\beta _{1}x_{i1}+\cdots +\beta _{p}x_{ip}+\varepsilon _{i}=\mathbf {x} _{i}^{T}{\boldsymbol {\beta }}+\varepsilon _{i},\qquad i=1,\ldots,n$$
+
+donde T denota la trasposición de la matriz de modo que ${x}_{i}^{T} \boldsymbol {\beta}$ es el producto matricial de vectores $x_i$ y $\boldsymbol {\beta }$.
+
+En forma vectorial:
+
+$$\mathbf {y} =\mathbf {X} {\boldsymbol {\beta }}+{\boldsymbol {\varepsilon }}$$
+
+
+$$\mathbf {y} ={\begin{pmatrix}y_{1}\\y_{2}\\\vdots \\y_{n}\end{pmatrix}},\quad 
+\mathbf {X} ={\begin{pmatrix}\mathbf {x} _{1}^{\rm {T}}\\\mathbf {x} _{2}^{\rm {T}}\\\vdots \\\mathbf {x} _{n}^{\rm {T}}\end{pmatrix}}={\begin{pmatrix}x_{11}&\cdots &x_{1p}\\x_{21}&\cdots &x_{2p}\\\vdots &\ddots &\vdots \\x_{n1}&\cdots &x_{np}\end{pmatrix}},
+{\boldsymbol {\beta }}={\begin{pmatrix}\beta _{1}\\\beta _{2}\\\vdots \\\beta _{p}\end{pmatrix}},\quad {\boldsymbol {\varepsilon }}={\begin{pmatrix}\varepsilon _{1}\\\varepsilon _{2}\\\vdots \\\varepsilon _{n}\end{pmatrix}}.$$
+
+En este abordaje los errores quedan definidos como: 
+
+$$\varepsilon = \mathbf {y} - \mathbf {X} {\boldsymbol {\beta }}$$
+
+y la suma de residuales cuadrados ($SRC$) a minimizar:
+
+$$SRC = \varepsilon^{T} \varepsilon $$ 
+
+\subsubsection{Los supuestos de Gauss-Markov} 
+
+El siguiente es un resumen de los cinco supuestos de Gauss-Markov. Los cuatro primeros garantizan el insesgamiento de los estimadores de
+mínimos cuadrados ordinarios (MCO). El quinto se agrega para obtener las fórmulas usuales para la varianza y para concluir que los estimadores de MCO son los mejores estimadores lineales insesgados. Finalmente el último, normalidad, se agrega para completar los supuestos clásicos del modelo lineal (para la inferencia estadística exacta).
+
+
+\begin{enumerate}
+	\item Linealidad en los parámetros
+	
+	El modelo poblacional puede expresarse de modo que la relación sea lineal en sus parámetros: 
+	
+	$$y_t = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_k x_k + u$$
+	
+	donde u es el error aleatorio o término de perturbación no observable.
+	
+	\item Muestreo aleatorio
+	
+	Se tiene un muestreo aleatorio con n observaciones, ${(x_{i1} , x_{i2}, ..., x_{ik}, y_i ): i = 1, 2, ..., n} $, de acuerdo con el modelo poblacional del supuesto 1.
+	
+	
+	\item  No hay colinealidad perfecta
+	
+	En la muestra (y por tanto en la población), ninguna de las variables independientes es constante y no hay relaciones lineales exactas entre las variables independientes.
+	
+	\item  Media condicional cero
+	
+	El error u tiene un valor esperado de cero dados cualesquiera valores de las variables independientes.
+	En otras palabras,
+	
+	$$E(u|x_1,x_2, ..., x_k ) = 0$$
+	
+	\item Homocedasticidad
+	
+	El error u tiene la misma varianza dado cualquier valor de las variables explicativas. En otras palabras:
+	
+	$$ Var(u|x_1,x_2, ..., x_k )= \sigma^2 $$
+	
+	\item Normalidad 
+	
+	El error poblacional $u$ es independiente de los regresores $x_1,x_2, ..., x_k$ y está distribuido normalmente, con media cero y varianza $\sigma^2$ : 
+	
+	$$u \sim Normal(0,\sigma^2 )$$
+	
+\end{enumerate}
+
+\subsubsection{Resultados}
+
+Los resultados obtenidos con un modelo de regresión múltiple son numerosos y existen diversas métricas que permiten evaluar su performance. Se enumeran aquí los dos principales elementos a la hora de leer los resultados (\textbf{Bondad del ajuste} y \textbf{estimadores de los parámetros}) y se refiere a la bibliografía especializada \cite{wooldridge,hastie} al lector que busque abarcas mayores temas.  
+
+\textbf{Bondad del ajuste} hace referencia a la variabilidad presente en el set de datos que es explicada por el modelo. Se mide a través del indicador $R^2$ que varía entre 0 y 1, siendo 1 el caso donde el modelo explica la variación total. La formula para el mismo es:
+
+$$R^2 = \frac{SRC}{\Sigma(y_i - \bar{y})} = \frac{\Sigma(\hat{y}_i - \bar{y})}{\Sigma(y_i - \bar{y})} $$
+
+El segundo producto de interés en un modelo de regresión son los estimadores de los parámetros o las llamadas betas ($\beta_k$). Las mismas dan cuenta del sentido y magnitud de la relación entre el regresor y el regresando. Los parámetros serán de negativos cuando la relación sea de proporcionalidad inversa, y la magnitud variará en función de la intensidad de dicha relación. 
+
+Estos estimadores de los parámetros tienen asociado un \textit{p-value} que asume como hipotesis nula que la relación es inexistente y por ende el parámetro toma magnitud 0. El \textit{p-value} mayor a los niveles de confianza establecidos (0.05 por convención) implica que se puede afirmar que el parámetro es distinto de 0  (o que en 95 de cada 100 muestras obtenidas de la misma distribución los intervalos de confianza contendrán el verdadero valor del estimador y que este no es igual a 0).
+
+La lectura de los parámetros varía de acuerdo a la especificación del modelo. Si la naturaleza de la relación no es lineal (puede que el regresando crezca exponencialmente a medida que crece el regresor), para mantener el supuesto de \textit{linealidad en los parámetros} se puede aplicar una transformación logarítmica a alguno de ellos o a ambos. Esto altura la lectura del parámetro. En una relación nivel-nivel, donde no hubo transformación logarítmica, el parámetro indica cuánto variará el regresando, en unidades de medida de éste último, frente a un cambio en una unidad del regresor, manteniendo el resto de las variables constantes. En caso contrario, el cambio será en términos porcentuales allí donde haya habido dicha transformación logarítmica.  
+
+\begin{table}[h!]
+	\centering
+	\caption{Resumen de las formas funcionales en las que se emplean logaritmos y lectura de los parámetros del modelo}
+	\label{tab:table1}
+	\begin{tabular}{l|l|l|l}
+		Modelo & Regresando & Regresor & Interpretación del parámetro\\
+		\hline
+		Nivel-nivel & $y$ & $x$ & $\Delta_y = \beta_k \Delta_x$\\
+		\hline
+		Nivel-Log & $y$ & $log(x)$ & $\Delta_y = (\beta_k / 100)\% \Delta_x$\\
+		\hline
+		Log-Nivel & $log(y)$ & $x$ & $ \% \Delta_y = (100 \beta_k) \Delta_x$\\
+		\hline
+		Log-Log & $log(y)$ & $log(x)$ & $ \% \Delta_y = \beta_k \% \Delta_x$\\
+				
+	\end{tabular}
+\end{table}
+
+
+
+\subsubsection{Regresores dicotómicos}
+% explicar dummyes, porque no uso categoricas
+
+\subsubsection{Interacción}
+%explicar caso base varon 35 años.
+
+\subsubsection{Modelo CAPECO}
+%cerrar estas cosas en la explicacion capeco
+
+\subsubsection{Comentario}
+Este modelo si toma como input una mujer ama de casa, se la considera inactiva por ende el retorno del modelo es 0. Esto explicita lo que se considera como ingreso monetario. La mujer ama de casa es un trabajo doméstico que no tiene retorno en ingreos monetario, pero implica que es un hogar que no debe gastar en servicios de cuidado, traslado de los niños al hogar y la escuela, servicio doméstico. Eventualmente esto podría cuantificarse en la medida de los gastos medios de los hogares dada la presencia de ama de casa.
 	
 	\subsection{El modelo detrás del indice CAPECO} \label{cap2-modeloCapeco}
 
