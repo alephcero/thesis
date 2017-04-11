@@ -3,7 +3,8 @@ import pandas as pd
 import numpy as np
 import os
 import sys
-import simpledbf
+import pysal as ps
+#import simpledbf
 import math
 import statsmodels.api as sm
 from sklearn.linear_model import LinearRegression
@@ -38,6 +39,20 @@ def getEPHInd(trimestre, path):
     else:
         print 'Original files in directory:', path
 
+        
+def dbf2DF(dbfile, upper=True): #Reads in DBF files and returns Pandas DF
+    '''
+    Arguments
+    ---------
+    dbfile  : DBF file - Input to be imported
+    upper   : Condition - If true, make column heads upper case
+    '''
+    db = ps.open(dbfile) #Pysal to open DBF
+    d = {col: db.by_col(col) for col in db.header} #Convert dbf to dictionary
+    pandasDF = pd.DataFrame(db[:]) #Convert to Pandas DF
+    pandasDF.columns=db.header
+    pandasDF.dropna(inplace=True)
+    return pandasDF
 
 
 def readEPHInd(trimestre, path):
