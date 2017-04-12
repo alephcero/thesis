@@ -12,6 +12,11 @@ from sklearn.cross_validation import train_test_split
 
 
 def getEPHInd(trimestre, path):
+    '''
+    This functions takes as parameters
+    trimestre: t110 = primer trimestre 2010
+    path: where to store data
+    '''
     #if data directory doesn't exists:
     if ~(os.path.isdir(path)):
         #create it
@@ -322,16 +327,34 @@ def runModel(dataset, income = 'lnIncome',
     for i in range(1,len(variables)+1):
         print 'x%d: %s' % (i,variables[i-1])
     #testing within sample
+    '''
     R_IS=[]
     R_OS=[]
     nCross=1000
     
     for i in range(nCross):
         X_train, X_test, y_train, y_test, w_train, w_test = train_test_split(X, y, w, test_size=0.33)
-        lm = sm.WLS(y_train, X_train, weights=1. / w_train, hasconst=False).fit()        
-        R_IS.append(1-((np.asarray(lm.predict(exog = X_train))-y_train)**2).sum()/((y_train-np.mean(y_train))**2).sum())                                                                     
-        R_OS.append(1-((np.asarray(lm.predict(exog = X_test))-y_test)**2).sum()/((y_test-np.mean(y_test))**2).sum())
+        lmCross = sm.WLS(y_train, X_train, weights=1. / w_train, hasconst=False).fit()        
+        R_IS.append(1-((np.asarray(lmCross.predict(exog = X_train))-y_train)**2).sum()/((y_train-np.mean(y_train))**2).sum())                                                                     
+        R_OS.append(1-((np.asarray(lmCross.predict(exog = X_test))-y_test)**2).sum()/((y_test-np.mean(y_test))**2).sum())
     print("IS R-squared for {} times is {}".format(nCross,np.mean(R_IS)))
     print("OS R-squared for {} times is {}".format(nCross,np.mean(R_OS)))
-
+    '''
     return lm
+
+def predictModelo(modelo, primary = 0, secondary = 0, university = 0,
+                  male_14to24 = 0, male_25to34 = 0,
+                  female_14to24 = 0, female_25to34 = 0, female_35tomore = 0
+                  ):
+    
+    '''
+    Esta funcion toma un vector booleano de variables 1 o 0 para las variables dummy
+    y devuelve el valor del modelo. 
+    La base es hombre mayor de 35 anios con 0 anios de escolaridad
+    '''
+    observacion = [primary,secondary,university,male_14to24,male_25to34,female_14to24,female_25to34,female_35tomore]
+    resultado = np.exp(np.dot(modelo.params[1:],observacion) + modelo.params[0])
+    return resultado
+
+
+
