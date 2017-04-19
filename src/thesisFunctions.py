@@ -356,5 +356,3 @@ def predictModelo(modelo, primary = 0, secondary = 0, university = 0,
     resultado = np.exp(np.dot(modelo.params[1:],observacion) + modelo.params[0])
     return resultado
 
-
-
