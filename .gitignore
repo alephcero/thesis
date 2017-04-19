@@ -194,7 +194,8 @@ apacite.sty
 *.p
 
 #data
-*.csv
+dt/t310
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
