@@ -356,3 +356,93 @@ def predictModelo(modelo, primary = 0, secondary = 0, university = 0,
     resultado = np.exp(np.dot(modelo.params[1:],observacion) + modelo.params[0])
     return resultado
 
+def adultoEquivalente(row):
+    age = row.age
+    female = row.female
+    resultado = np.nan
+    if (age < 10) : #si es menor a 10 no hay diferencia de genero
+        if age < 1 :
+            resultado = 0.315 # se pondera entre 0.28 y 0.35 porque EPH 2010 no lo da en meses
+        if age == 1 :
+            resultado = 0.37
+        if age == 2 :
+            resultado = 0.46
+        if age == 3 :
+            resultado = 0.51
+        if age == 4 :
+            resultado = 0.55
+        if age == 5 :
+            resultado = 0.6
+        if age == 6 :
+            resultado = 0.64         
+        if age == 7 :
+            resultado = 0.66
+        if age == 8 :
+            resultado = 0.68
+        if age == 9 :
+            resultado = 0.69
+    else: #si es mayor a 10
+        if female == 0: #si es varon
+            if age == 10 :
+                resultado = 0.79
+            elif age == 11 :
+                resultado = 0.82
+            elif age == 12 :
+                resultado = 0.85
+            elif age == 13 :
+                resultado = 0.90
+            elif age == 14 :
+                resultado = 0.96            
+            elif age == 15 :
+                resultado = 1.
+            elif age == 16 :
+                resultado = 1.03
+            elif age == 17 :
+                resultado = 1.04
+            elif ((age >= 18) & (age <= 29)):
+                resultado = 1.02
+            elif ((age >= 30) & (age <= 45)):
+                resultado = 1.0
+            elif ((age >= 46) & (age <= 60)):
+                resultado = 1.0
+            elif ((age >= 61) & (age <= 75)):
+                resultado = 0.83
+            elif age > 75:
+                resultado = 0.74
+            else:
+                resultado = np.nan
+        else: #si es mujer
+            if age == 10 :
+                resultado = 0.70
+            elif age == 11 :
+                resultado = 0.72
+            elif age == 12 :
+                resultado = 0.74
+            elif age == 13 :
+                resultado = 0.76
+            elif age == 14 :
+                resultado = 0.76            
+            elif age == 15 :
+                resultado = 0.77
+            elif age == 16 :
+                resultado = 0.77
+            elif age == 17 :
+                resultado = 0.77
+            elif ((age >= 18) & (age <= 29)):
+                resultado = 0.76
+            elif ((age >= 30) & (age <= 45)):
+                resultado = 0.77
+            elif ((age >= 46) & (age <= 60)):
+                resultado = 0.76
+            elif ((age >= 61) & (age <= 75)):
+                resultado = 0.67
+            elif age > 75:
+                resultado = 0.63
+            else:
+                resultado = np.nan
+    return resultado
+            
+            
+            
+            
+            
