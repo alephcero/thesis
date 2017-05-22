@@ -444,5 +444,32 @@ def adultoEquivalente(row):
             
             
             
+def coeficientePercepcion(row):
+    activity = row.activity
+    #1 es ocupado
+    age = row.age
+    female = row.female
+    result = np.nan
+    
+    if activity != 1:
+        result = 0
+    else:
+        #varones
+        if female == 0:
+            if (age >= 35):
+                result = 1
+            elif ((age <= 34) &(age >= 25)):
+                result = 0.856660
+            elif ((age <= 24) &(age >= 14)):
+                result = 0.656251
             
+            
+        else: #mujeres
+            if (age >= 35):
+                result = 0.557506
+            elif ((age <= 34) &(age >= 25)):
+                result = 0.534522
+            elif ((age <= 24) &(age >= 14)):
+                result = 0.394728
+    return result
             
