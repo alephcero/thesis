@@ -123,7 +123,7 @@ Se entiende por AGBA, desde el punto de vista de límites físicos, "al área ge
 	
 	
 	
-\section{La Brújula: los modelos de regresión múltiple y el CAPECO}\label{cap2-brujula}
+	\section{La Brújula: los modelos de regresión múltiple y el CAPECO}\label{cap2-brujula}
 
 \subsection{Modelos de regresión múltiples}
 
@@ -258,33 +258,94 @@ La lectura de los parámetros varía de acuerdo a la especificación del modelo.
 
 
 
-\subsubsection{Regresores dicotómicos}
-% explicar dummyes, porque no uso categoricas
+\subsubsection{Regresores categóricos y dicotómicos }
+
+Las variables categóricas pueden utilizarse en los modelos a regresión múltiple a condición de que primero sean transformadas en variables dicotómicas del siguiente modo. Por cada valor de la variable debe crearse un vector de la misma longitud de la variable original. El mismo será un vector dicotómico o \textit{dummy} que tomará solamente valores $1$ o $0$. Para cada valor de la variable se creará un vector que tomará valor $1$ para las observaciones que originalmente hayan tomado ese valor en la variable original. Por ejemplo, la variable \textbf{Sexo}, que toma los valores \textit{mujer} o \textit{varón}, puede ser convertida en el vector \textbf{Mujer} que tomará valor $1$ para las observaciones que hayan registrado \textit{mujer} en la variable original, $0$ en caso contrario. Si se quisiese observar el impacto de la pertenencia provincial de las observaciones, entonces deberían existir 24 vectores, uno para cada provincia. 
+
 
 \subsubsection{Interacción}
 %explicar caso base varon 35 años.
+Algunas veces es natural que el efecto parcial, la elasticidad o la semielasticidad de la variable dependiente respecto a una variable explicativa dependa de la magnitud de otra variable explicativa. Plantearemos un ejemplo cercano al tema que nos compete en este trabajo y que sirva de algún modo como una introducción al índice CAPECO y recupere los desarrollos metodológicos previos. Uno puede asumir que a mayores años de escolaridad ($AE$), mayor será el salario ($Y$) más allá de un salario básico ($w_0$) que supongamos se establece por ley. Planteamos un modelo linear que esperamos nos ofrezca un parámetro ($\beta$) para esta relación. El mismo nos dirá cuánto más gana una persona por tener un año más de escolaridad. 
 
-\subsubsection{Modelo CAPECO}
-%cerrar estas cosas en la explicacion capeco
 
-\subsubsection{Comentario}
-Este modelo si toma como input una mujer ama de casa, se la considera inactiva por ende el retorno del modelo es 0. Esto explicita lo que se considera como ingreso monetario. La mujer ama de casa es un trabajo doméstico que no tiene retorno en ingreos monetario, pero implica que es un hogar que no debe gastar en servicios de cuidado, traslado de los niños al hogar y la escuela, servicio doméstico. Eventualmente esto podría cuantificarse en la medida de los gastos medios de los hogares dada la presencia de ama de casa.
-	
-	\subsection{El modelo detrás del indice CAPECO} \label{cap2-modeloCapeco}
+$$Y = w_0 + \beta AE [1]$$ 
 
-	Explicar los modelos detrás de CAPECO y 
+\begin{figure}[h]
+		\centering
+		\textbf{Salario según años de escolaridad}\par\medskip
+		\includegraphics[scale = 0.7]{../img/capitulo2/modelo1.png}
+		\caption{En el gráfico se observa la relación lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario}
+\end{figure}
+
+De este modo podemos plantear que existe una relación \textit{linear} entre años de escolaridad y salario. De este modo cada año ofrece un retorno \textit{constante} de una determinada cantidad en moneda (en este caso nuestro parámetro a estimar $\beta$ estará en pesos). Esta es una de las limitaciones de esta metodología, que asume linearidad en los parámetros. Sin embargo, si suponemos que no es lo mismo un año de escolaridad universitaria que de primaria, es decir que existen retornos \textit{crecientes}, existe una manera de plantearlo sin violar los supuestos del modelo. Haciendo una transformación logarítmica del regresando, podemos plantear este escenario:
+
+$$log(Y) = w_0 + \beta AE [2]$$
+
+En este caso, nuestro parámetro a estimar estaría ya no en moneda sino en porcentajes. Es decir, un año más de escolaridad implicaría tanto más por ciento con lo cual cada año ofrece un retorno \textit{mayor en pesos} que el anterior.
+
+
+\begin{figure}[h]
+		\centering
+		\textbf{Salario según años de escolaridad}\par\medskip
+		\includegraphics[scale = 0.7]{../img/capitulo2/modelo2.png}
+		\caption{En el gráfico se observa la relación lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario. Solo que los 2 años adicionales de escolaridad entre 14 y 16 implica un salario adicional de 5000 pesos mientras que los 2 años adicionales de 0 a 2 apenas marcan una diferencia.}
+\end{figure}
+
+
+Ahora sí, podemos introducir el concepto de \textit{interacción}. Primero, podemos suponer que el sexo ($S$) es una variable que influye en el salario de las personas. De este modo podemos introducir dicha variable como regresor en el modelo para, por un lado, obtener un estimador de cuán influyente es y, por el otro, aislar su efecto del retorno de la escolaridad. Es una forma de controlar por esta variable. Así el modelo quería formulado por:
+ 
+$$log(Y) = w_0 + \beta_1 AE + \beta_2 S [3]$$
+
+\begin{figure}[h]
+		\centering
+		\textbf{Salario según años de escolaridad}\par\medskip
+		\includegraphics[scale = 0.7]{../img/capitulo2/modelo3.png}
+		\caption{En el gráfico se observa la relación lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario tanto para varón como para mujer. Solo que la mujer parte de un salario inferior, pero aumenta al mismo ritmo con el aumento de la escolaridad}
+\end{figure}
+
+
+Ahora, podemos plantear que esta relación entre escolaridad y salario puede ser diferente según estemos hablando de una mujer o un varón. Es decir, no solo que los salarios medios cambian según el sexo, sino que cada año de escolaridad le ofrece retornos diferentes según esa persona sea mujer o varón. Esto se puede plantear con un modelo con términos de interacción del siguiente modo:
+
+$$log(Y) = w_0 + \beta_1 AE + \beta_2 S + \beta_3  S.AE [4] $$
+
+\begin{figure}[h]
+		\centering
+		\textbf{Salario según años de escolaridad}\par\medskip
+		\includegraphics[scale = 0.7]{../img/capitulo2/modelo4.png}
+		\caption{En el gráfico se observa la relación lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario tanto para varón como para mujer. Solo que la mujer además de partir de un salario inferior, aumenta a un ritmo diferente (menor) con el aumento de la escolaridad, lo cual amplía la brecha en los tramos superiores de escolaridad}
+\end{figure}
+
+Esto cambia la interpretación de los estimadores, fundamentalmente el parámetro de ordenada al origen ($w_0$ en nuestro caso). Originalmente en la especificación del modelo en [1] y [2], era entendido como un salario básico, un monto por debajo del cual nadie era remunerado, sin importar cuantos años de escolaridad tuviese. Es decir, significaba cuánto ganaba alguien con 0 años de escolaridad. Sin embargo en el modelo  de [3] esto cambia y pasa a ser el salario mínimo no de todos sino del \textit{caso testigo}, que en nuestro ejemplo es un trabajador varón años de escolaridad. Para las mujeres, la variable $S$ tomará valor $1$ y se adicionará (o restará, porque los parámetros pueden ser de signo negativo) $\beta_2$. 
+
+Finalmente, para el modelo [4] se obtiene para las mujeres una nueva ordenada al origen como una nueva pendiente. Es decir, no solo las mujeres ganan diferente, sino que su relación con los años de escolaridad es de otro orden. Este es el rol que cumple el intercepto y así debe interpretarse el rol de la ordenada al origen y el caso testigo. Esto será de mucha utilidad en la especificación que hacer el CAPECO de su modelo.
+
+\subsection{El modelo detrás del indice CAPECO} \label{cap2-modeloCapeco}
+
+Explicar los modelos detrás de CAPECO y 
 
 
 
 
 	\section{Desafios metodológicos}
 
+
+Este modelo si toma como input una mujer ama de casa, se la considera inactiva por ende el retorno del modelo es 0. Esto explicita lo que se considera como ingreso monetario. La mujer ama de casa es un trabajo doméstico que no tiene retorno en ingreos monetario, pero implica que es un hogar que no debe gastar en servicios de cuidado, traslado de los niños al hogar y la escuela, servicio doméstico. Eventualmente esto podría cuantificarse en la medida de los gastos medios de los hogares dada la presencia de ama de casa.
+
 imputacion de valores en EPH
+
 Fuentes de informacion (dudas sobre la EPH, Censo)
+
 Base cartografica para el AGBA a construir
+
 No hay vector de probabilidades de inclusión en EPH por secreto estadístico
+
 Radios censales - Unidades gepgráficas modificables
+
 dos cuestionarios, uno ampliado muestral con jubilacion (Metodología art INVI en prensa.docx)
+
+perciben rentas, estudiantes etc
+
+sensibilidad a outliers del metodo
 	
 	\section{Instrumentos computacionales}
 	- REDATAM
