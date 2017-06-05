@@ -270,11 +270,11 @@ Algunas veces es natural que el efecto parcial, la elasticidad o la semielastici
 
 $$Y = w_0 + \beta AE [1]$$ 
 
-\begin{figure}[h]
+\begin{figure}[!h]
 		\centering
-		\textbf{Salario según años de escolaridad}\par\medskip
-		\includegraphics[scale = 0.7]{../img/capitulo2/modelo1.png}
-		\caption{En el gráfico se observa la relación lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario}
+		\textbf{Salario según años de escolaridad y sexo}\par\medskip
+		\includegraphics[scale = 0.5]{../img/capitulo2/modelo.png}
+		\caption{En el gráfico se observa la relación lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario.En el gráfico se observa la relación lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario. Solo que los 2 años adicionales de escolaridad entre 14 y 16 implica un salario adicional de 5000 pesos mientras que los 2 años adicionales de 0 a 2 apenas marcan una diferencia.En el gráfico se observa la relación lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario tanto para varón como para mujer. Solo que la mujer parte de un salario inferior, pero aumenta al mismo ritmo con el aumento de la escolaridad. En el gráfico se observa la relación lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario tanto para varón como para mujer. Solo que la mujer además de partir de un salario inferior, aumenta a un ritmo diferente (menor) con el aumento de la escolaridad, lo cual amplía la brecha en los tramos superiores de escolaridad}
 \end{figure}
 
 De este modo podemos plantear que existe una relación \textit{linear} entre años de escolaridad y salario. De este modo cada año ofrece un retorno \textit{constante} de una determinada cantidad en moneda (en este caso nuestro parámetro a estimar $\beta$ estará en pesos). Esta es una de las limitaciones de esta metodología, que asume linearidad en los parámetros. Sin embargo, si suponemos que no es lo mismo un año de escolaridad universitaria que de primaria, es decir que existen retornos \textit{crecientes}, existe una manera de plantearlo sin violar los supuestos del modelo. Haciendo una transformación logarítmica del regresando, podemos plantear este escenario:
@@ -284,52 +284,88 @@ $$log(Y) = w_0 + \beta AE [2]$$
 En este caso, nuestro parámetro a estimar estaría ya no en moneda sino en porcentajes. Es decir, un año más de escolaridad implicaría tanto más por ciento con lo cual cada año ofrece un retorno \textit{mayor en pesos} que el anterior.
 
 
-\begin{figure}[h]
-		\centering
-		\textbf{Salario según años de escolaridad}\par\medskip
-		\includegraphics[scale = 0.7]{../img/capitulo2/modelo2.png}
-		\caption{En el gráfico se observa la relación lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario. Solo que los 2 años adicionales de escolaridad entre 14 y 16 implica un salario adicional de 5000 pesos mientras que los 2 años adicionales de 0 a 2 apenas marcan una diferencia.}
-\end{figure}
 
 
 Ahora sí, podemos introducir el concepto de \textit{interacción}. Primero, podemos suponer que el sexo ($S$) es una variable que influye en el salario de las personas. De este modo podemos introducir dicha variable como regresor en el modelo para, por un lado, obtener un estimador de cuán influyente es y, por el otro, aislar su efecto del retorno de la escolaridad. Es una forma de controlar por esta variable. Así el modelo quería formulado por:
  
 $$log(Y) = w_0 + \beta_1 AE + \beta_2 S [3]$$
 
-\begin{figure}[h]
-		\centering
-		\textbf{Salario según años de escolaridad}\par\medskip
-		\includegraphics[scale = 0.7]{../img/capitulo2/modelo3.png}
-		\caption{En el gráfico se observa la relación lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario tanto para varón como para mujer. Solo que la mujer parte de un salario inferior, pero aumenta al mismo ritmo con el aumento de la escolaridad}
-\end{figure}
 
 
 Ahora, podemos plantear que esta relación entre escolaridad y salario puede ser diferente según estemos hablando de una mujer o un varón. Es decir, no solo que los salarios medios cambian según el sexo, sino que cada año de escolaridad le ofrece retornos diferentes según esa persona sea mujer o varón. Esto se puede plantear con un modelo con términos de interacción del siguiente modo:
 
 $$log(Y) = w_0 + \beta_1 AE + \beta_2 S + \beta_3  S.AE [4] $$
 
-\begin{figure}[h]
-		\centering
-		\textbf{Salario según años de escolaridad}\par\medskip
-		\includegraphics[scale = 0.7]{../img/capitulo2/modelo4.png}
-		\caption{En el gráfico se observa la relación lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario tanto para varón como para mujer. Solo que la mujer además de partir de un salario inferior, aumenta a un ritmo diferente (menor) con el aumento de la escolaridad, lo cual amplía la brecha en los tramos superiores de escolaridad}
-\end{figure}
+
 
 Esto cambia la interpretación de los estimadores, fundamentalmente el parámetro de ordenada al origen ($w_0$ en nuestro caso). Originalmente en la especificación del modelo en [1] y [2], era entendido como un salario básico, un monto por debajo del cual nadie era remunerado, sin importar cuantos años de escolaridad tuviese. Es decir, significaba cuánto ganaba alguien con 0 años de escolaridad. Sin embargo en el modelo  de [3] esto cambia y pasa a ser el salario mínimo no de todos sino del \textit{caso testigo}, que en nuestro ejemplo es un trabajador varón años de escolaridad. Para las mujeres, la variable $S$ tomará valor $1$ y se adicionará (o restará, porque los parámetros pueden ser de signo negativo) $\beta_2$. 
 
-Finalmente, para el modelo [4] se obtiene para las mujeres una nueva ordenada al origen como una nueva pendiente. Es decir, no solo las mujeres ganan diferente, sino que su relación con los años de escolaridad es de otro orden. Este es el rol que cumple el intercepto y así debe interpretarse el rol de la ordenada al origen y el caso testigo. Esto será de mucha utilidad en la especificación que hacer el CAPECO de su modelo.
+Finalmente, para el modelo [4] se obtiene para las mujeres una nueva ordenada al origen como una nueva pendiente. Es decir, no solo las mujeres ganan diferente, sino que su relación con los años de escolaridad es de otro orden. Este es el rol que cumple el intercepto y así debe interpretarse el rol de la ordenada al origen y el caso testigo. Esto será de mucha utilidad en la especificación del modelo CAPECO.
 
 \subsection{El modelo detrás del indice CAPECO} \label{cap2-modeloCapeco}
 
-Explicar los modelos detrás de CAPECO y 
+Para la construcción del CAPECO 2001 se tomó como base la EPH correspondiente al mes de octubre de 2001. El modelo que subyace al índice CAPECO intenta aproximar el ingreso a partir de las variables que la literatura considera determinantes y a su vez se encuentran presentes en el Censo: 
+
+\begin{itemize}
+	\item Sexo 
+	\item Edad
+	\item Región geográfica
+	\item Condición de actividad
+	\item Años de escolaridad aprobados
+\end{itemize}
+
+A partir de estas variables se modelizó en una única ecuación los incrementos porcentuales en los ingresos laborales debidos a un incremento marginal en los años de escolaridad a partir de una función continua con pendientes diferenciales por nivel educativo. Se asumió el supuesto simplificador de considerar la cantidad de horas de trabajo como una función endógena de los años de escolaridad (los otros modelos de capital humano consideran esta variable, pero no se encuentra en el Censo).
+
+Finalmente se incluyerón las variables de sexo, edad y lugar de residencia como explicativas de los diferenciales de ingreso a través de un conjunto de 35 dummies que reflejan todas las
+combinaciones posibles entre las tres variables, asumiendo que existen relaciones entre
+éstas. Esta última alternativa fue la seleccionada por considerarse que las diferencias de
+los ingresos entre sexos, por ejemplo, no son uniformes a través de las distintas regiones
+geográficas \cite{indec2004}. Dado que en este trabajo el área bajo análisis es la AGBA, no utilizaremos el resto de las variables que atañe a la región.
+
+$$Ln Y_n = Ln Y_0 + r1. Esc_1 + r2. Esc_2 + r3. Esc_3 + $$
+$$ \beta_0 m35ymas GBA + \beta_1 v14a24 GBA+ \beta_2 m14a24GBA + $$
+$$\beta_3. v25a34 GBA+ \beta_4. m25a34GBA + \cdots + \epsilon $$
+
+donde:
+
+\begin{itemize}
+	\item $Y_0$ son los ingresos laborales para un varón con 0 años de escolaridad de 35 años y más que reside en GBA. Es el intercepto u ordenada al origen.
+	\item $Esc_1$ es escolaridad primaria y puede asumir valores desde 1 a 7
+	\item $Esc_2$ es escolaridad secundaria y puede asumir valores de 1 a 5
+	\item $Esc_3$ es escolaridad superior y puede asumir valores de 1 a 5
+	\item $m35ymasGBA$ es una \textit{dummy} que asume valor = 1 si es una mujer de 35 años y más que reside en GBA
+	\item $v14a24GBA$ es una \textit{dummy} que asume valor = 1 si es un varón de 14 a 24 que reside en GBA y así sucesivamente con las restantes 33 variables \textit{dummy} que combinan el sexo con la edad y la región de residencia.
+\end{itemize}
+
+Este es el modelo subyacente al CAPECO y de por sí ya constituye una herramienta para aproximarse al ingreso del hogar. Sin embargo, los investigadores a cargo tomaron la decisión de construir un índice cuyos coeficientes se basen en este modelo. 
+
+El índice CAPECO se construye de acuerdo a la siguiente fórmula:
+
+$$ CAPECO = \frac{\displaystyle\sum_{i=1}^{n}(CP_i * VAE_i)}{\displaystyle\sum_{i=1}^{n}Aeq_i} $$
+
+donde:
+\begin{itemize}
+	\item n: total de integrantes del hogar
+	\item CP: condición de percepción (asume distintos valores según la condición de actividad, la edad, el sexo y el lugar de residencia)
+	\item VAE: valor de los años de escolaridad invertidos en el mercado laboral
+	\item Aeq: valor en unidades de adulto equivalente de cada integrante del hogar (varía de acuerdo al sexo y la edad, siguiendo una tabla de necesidades calóricas y nutricionales)
+\end{itemize}
 
 
+Para ello construye 3 coeficientes previamente enumerados (CP,VAE y Aeq), de los cuales solo los dos primeros surgen del modelo previamente explicitado. El último es un insumo que se toma directamente de otra fuente. Se denomina \textit{Adulto equivalente} y expresa las necesidades nutricionales y energéticas según edad y sexo, en base a las necesidades de una unidad de referencia: un adulto varón entre 30 y 60 años \cite{indec2016b}. Las mismas surgen de la Encuesta de Gastos de los Hogares (ENGHo). Para el CAPECO de 2001, se tomó el dato correspondiente a la ENGHO 1996/97. Estas tablas de equivalencias pueden consultarse en el Anexo \ref{anexo}.
 
+En cambio, los otros dos coeficientes (\textit{CP} y \textit{VAE}) son producto del modelo que subyace al CAPECO. El \textit{Coeficiente de Percepción} (CP) toma como caso base o testigo a un individuo de sexo masculino de 35 años y más que reside en GBA y asume valor 1. El resto de los individuos se considerará en relación a éste, utilizando los coeficientes que acompañan a las \textit{dummy} para establecer las diferencias de sus ingresos con respecto a éste. Si las mujeres y los jóvenes tienen ingresos inferiores, estos coeficientes tendrán un signo negativo, es decir funcionarán como “penalidades” a aplicarse sobre el valor de los ingresos del testigo
+con sus mismos años de escolaridad. En general, todos los perceptores tienen una “penalización” respecto de los ingresos que percibe el perceptor equivalente, lo cual significa que sus años de escolaridad se ven depreciados a causa de su edad, sexo y lugar de residencia \cite{indec2016b}. El coeficiente se calcula como la proporción del ingreso estimado por el modelo para ese grupo de edad y sexo, en comparación con el ingreso estimado por el modelo para el caso testigo (varón de 35 o más).
+
+
+El \textit{Valor de los Años de Escolaridad en el mercado laboral} (VAE) se determinó del siguiente modo: se asignó una base arbitraria de valor 7 para el nivel educativo primaria completa (es decir, 7 años de escolaridad aprobados). A partir de este valor índice, se realiza el mismo procedimiento comparativo, comparando las diferencias para cada año de escolaridad frente a esa base 7.  
+ 
+ 	\section{Autocorrelación espacial}
 
 	\section{Desafios metodológicos}
 
 
-Este modelo si toma como input una mujer ama de casa, se la considera inactiva por ende el retorno del modelo es 0. Esto explicita lo que se considera como ingreso monetario. La mujer ama de casa es un trabajo doméstico que no tiene retorno en ingreos monetario, pero implica que es un hogar que no debe gastar en servicios de cuidado, traslado de los niños al hogar y la escuela, servicio doméstico. Eventualmente esto podría cuantificarse en la medida de los gastos medios de los hogares dada la presencia de ama de casa.
+Este modelo si toma como input una mujer ama de casa, se la considera inactiva por ende el retorno del modelo es 0. Esto explicita lo que se considera como ingreso monetario. La mujer ama de casa es un trabajo doméstico que no tiene retorno en ingresos monetario, pero implica que es un hogar que no debe gastar en servicios de cuidado, traslado de los niños al hogar y la escuela, servicio doméstico. Eventualmente esto podría cuantificarse en la medida de los gastos medios de los hogares dada la presencia de ama de casa.
 
 imputacion de valores en EPH
 
