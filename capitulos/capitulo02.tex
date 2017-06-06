@@ -201,7 +201,7 @@ mínimos cuadrados ordinarios (MCO). El quinto se agrega para obtener las fórmu
 	
 	\item  No hay colinealidad perfecta
 	
-	En la muestra (y por tanto en la población), ninguna de las variables independientes es constante y no hay relaciones lineales exactas entre las variables independientes.
+	En la muestra (y por tanto en la población), ninguna de las variables independientes es constante y no hay relaciones lineales exactas entre las variables independientes. 
 	
 	\item  Media condicional cero
 	
@@ -352,39 +352,59 @@ donde:
 \end{itemize}
 
 
-Para ello construye 3 coeficientes previamente enumerados (CP,VAE y Aeq), de los cuales solo los dos primeros surgen del modelo previamente explicitado. El último es un insumo que se toma directamente de otra fuente. Se denomina \textit{Adulto equivalente} y expresa las necesidades nutricionales y energéticas según edad y sexo, en base a las necesidades de una unidad de referencia: un adulto varón entre 30 y 60 años \cite{indec2016b}. Las mismas surgen de la Encuesta de Gastos de los Hogares (ENGHo). Para el CAPECO de 2001, se tomó el dato correspondiente a la ENGHO 1996/97. Estas tablas de equivalencias pueden consultarse en el Anexo \ref{anexo}.
+Para ello construye 3 coeficientes previamente enumerados (CP,VAE y Aeq), de los cuales solo los dos primeros surgen del modelo previamente explicitado. El último es un insumo que se toma directamente de otra fuente. Se denomina \textit{Adulto equivalente} y expresa las necesidades nutricionales y energéticas según edad y sexo, en base a las necesidades de una unidad de referencia: un adulto varón entre 30 y 60 años \cite{indec2016b}. Las mismas surgen de la Encuesta de Gastos de los Hogares (ENGHo). Para el CAPECO de 2001, se tomó el dato correspondiente a la ENGHO 1996/97. Estas tablas de equivalencias pueden consultarse en el Anexo \ref{tab:tableAE2001}.
 
 En cambio, los otros dos coeficientes (\textit{CP} y \textit{VAE}) son producto del modelo que subyace al CAPECO. El \textit{Coeficiente de Percepción} (CP) toma como caso base o testigo a un individuo de sexo masculino de 35 años y más que reside en GBA y asume valor 1. El resto de los individuos se considerará en relación a éste, utilizando los coeficientes que acompañan a las \textit{dummy} para establecer las diferencias de sus ingresos con respecto a éste. Si las mujeres y los jóvenes tienen ingresos inferiores, estos coeficientes tendrán un signo negativo, es decir funcionarán como “penalidades” a aplicarse sobre el valor de los ingresos del testigo
-con sus mismos años de escolaridad. En general, todos los perceptores tienen una “penalización” respecto de los ingresos que percibe el perceptor equivalente, lo cual significa que sus años de escolaridad se ven depreciados a causa de su edad, sexo y lugar de residencia \cite{indec2016b}. El coeficiente se calcula como la proporción del ingreso estimado por el modelo para ese grupo de edad y sexo, en comparación con el ingreso estimado por el modelo para el caso testigo (varón de 35 o más).
+con sus mismos años de escolaridad. En general, todos los perceptores tienen una “penalización” respecto de los ingresos que percibe el perceptor equivalente, lo cual significa que sus años de escolaridad se ven depreciados a causa de su edad, sexo y lugar de residencia \cite{indec2016b}. El coeficiente se calcula como la proporción del ingreso estimado por el modelo para ese grupo de edad y sexo, en comparación con el ingreso estimado por el modelo para el caso testigo (varón de 35 o más).Sus valores pueden consultarse en la tabla \ref{tab:tableCP2001}
 
 
-El \textit{Valor de los Años de Escolaridad en el mercado laboral} (VAE) se determinó del siguiente modo: se asignó una base arbitraria de valor 7 para el nivel educativo primaria completa (es decir, 7 años de escolaridad aprobados). A partir de este valor índice, se realiza el mismo procedimiento comparativo, comparando las diferencias para cada año de escolaridad frente a esa base 7.  
+El \textit{Valor de los Años de Escolaridad en el mercado laboral} (VAE) se determinó del siguiente modo: se asignó una base arbitraria de valor 7 para el nivel educativo primaria completa (es decir, 7 años de escolaridad aprobados). A partir de este valor índice, se realiza el mismo procedimiento comparativo, comparando las diferencias para cada año de escolaridad frente a esa base 7. Sus valores pueden consultarse en la tabla \ref{tab:tableVAE2001}
  
  	\section{Autocorrelación espacial}
 
 	\section{Desafios metodológicos}
+	
+A continuación se enumeran algunos de los problemas y dificultades existentes con la metodología utilizada en este trabajo con el espíritu de explicitar sus problemas de modo que sean tomados en consideración en los análisis posteriores que se lleven a cabo.	
+
+	\subsection{Inactivos con rentas}
+
+Este modelo se sostiene fuertemente en el paradigma del capital humano y en la valorización de dicho capital en el mercado de trabajo. Por lo tanto, resulta inadecuado para aquellos que a pesar de no formar parte del mercado de trabajo de todos modos perciben algún tipo de ingreso monetario. Podría citarse como ejemplo paradigmático los/las estudiantes que se mudaron a centros urbanos con universidades, que viven solos/as o con otros/as estudiantes que no trabajan pero perciben una renta de sus familias. En estos casos el CAPECO imputa un valor 0. Lo mismo puede ser dicho para toda situación de inactivos que vivan de rentas. 
+
+También se puede mencionar que existirá un problema en general para el caso de los inactivos. Si bien se puede esperar que aquellos capitales acumulados durante la etapa activa, persistan en el tiempo dando rendimientos en la etapa inactiva (de modo que le nivel educativo de la persona en cuestión sigue ofreciendo información significativa sobre su ingreso actual producto de las rentas acumuladas en el pasado), esta situación cambia sensiblemente de acuerdo a la condición de inactividad de esta persona. Si cobra o no jubilación, pensión, etc. Esto fue considerado en el modelo original del CAPECO con coeficientes de percepción diferenciales para estas situaciones, pero para el caso de 2010 presenta un problema.
+
+	
+	\subsection{Ausencia de información}
+	
+El formulario censal básico de 2010 (el que ofrece resultados para unidades espaciales micro) no recaba información sobre la condición de inactividad. De este modo no sabemos para cada observación si la condición de inactividad es tal debido a percepción de rentas, jubilación, pensión, etc. Esto hace que para el CAPECO 2010, los coeficientes de percepción sean diferentes y aún más insensibles antes la inactividad. Esto lleva a mayores niveles de error.
+		
+Otra información ausente en la cédula censal básica que tiene alto impacto en el nivel de ingreso de acuerdo al capital humano son la cantidad de horas trabajadas. Este escollo fue sorteado mediante el supuesto simplificador mencionado previamente de que la cantidad de horas también es una función de los años de escolaridad. Sin embargo, hemos decidido volver a mencionarlo para explicitar esta situación. Esto tiene potencial impacto en el tramo inferior de ingresos, dado que para altos niveles de escolaridad es de esperar que los/as activos/as lleven adelante una jornada laboral completa. Para aquellos/as que trabajan menos horas, la cantidad es determinante en su nivel de ingreso.  
+
+Otra falta de información en el Censo es si dicho trabajo es registrado o no. Esto también tiene alto impacto en la estimación de ingresos, especialmente en el tramo inferior (dado que los años de escolaridad están relacionados con el tipo de trabajo realizado en términos de formalidad). 
+
+Una última cuestión a mencionar en relación al Censo es la ausencia en el formulario básico del sector de actividad en el que se desempeñan los/as activos/as. Las productividades diferenciales de los diversos sectores tienen su correlato en el nivel de salarios del sector. Esto tiene un impacto en todo el espectro de ingreso, pero es de esperar que, a diferencia de los casos anteriores, afecte particularmente al tramo de ingresos medios y altos. Un caso con el máximo de años de escolaridad concebido en el índice CAPECO (17 años) puede tener niveles de ingresos muy disimiles en función del sector de actividad en el que se desempeñe, debido a la productividad y el nivel de salarios del mismo. Esto puede redundar en una subestimación de ingresos por parte del CAPECO. 
+
+Se menciona el formulario básico ya que es el único que permite obtener resultados a escala microespacial. El formulario ampliado incorpora algunos de estos elementos (jubilación, tamaño del establecimiento, sector, etc.) pero solo arroja resultados a nivel departamental.
+
+Existe una última limitación vinculada a información insuficiente en las fuentes utilizadas, esta vez en relación a la EPH. La EPH se basa en un diseño muestral con una estrategia de estratificación en diversas etapas. Para poder realizar estimaciones en una muestra de estas características, y obtener intervalos de confianza para dichas estimaciones, es indispensable contar con los vectores de probabilidad de inclusión de primer y segundo orden de cada una de las observaciones. Sin los mismos, no se pueden establecer dichos intervalos. La EPH sí cuenta con el vector de pesos, que es la inversa de la probabilidad de inclusión producto de toda las etapas. Estos pesos o ponderadores permiten obtener un estimador, pero no así los intervalos de confianza. 
+
+Por último, existe la sospecha de subdeclaración de ingresos en la EPH, en especial por parte de los sectores de altos ingresos. Al mismo tiempo se imputan ingresos para muchos casos donde las personas encuestadas se niegan a informar los mismos al encuestador. La decisión en este trabajo fue tomar esas imputaciones y registros de ingresos como datos válidos. Pero se explicita que estas cuestiones pueden redundar en errores de estimación (puntualmente pueden implicar una subestimación por parte del modelo).
+	
+	\subsection{Outliers}
+	
+Los modelos de regresión lineales tienen como una de sus principales desventajas, la extrema sensibilidad a valores extremos u outliers. En el caso del ingreso, la distribución del mismo dista mucho de asemejarse a la distribución normal y presenta casos extremos, tanto en el tramo inferior como superior. Estos casos pueden influir en el análisis. Sin embargo, una cuidada estrategia de detección de outliers puede disminuir este impacto. La remoción de outliers puede ser justificada para el análisis de distribución del ingreso. Para los casos de ingreso extraordinariamente altos, los mismos representan una porción muy pequeña. En el caso de los muy bajos ingresos, se debe tener más cuidado  ya que la asimetría de la distribución hace representen una proporción algo mayor. Sin embargo, se puede plantear el interrogante sobre los hogares que registran nulos ingresos en un contexto de una aglomeración urbana como el AGBA. Un hogar con nula percepción de ingresos puede ser considerado una situación coyuntural que amerita no sea considerado en el análisis.  
 
 
-Este modelo si toma como input una mujer ama de casa, se la considera inactiva por ende el retorno del modelo es 0. Esto explicita lo que se considera como ingreso monetario. La mujer ama de casa es un trabajo doméstico que no tiene retorno en ingresos monetario, pero implica que es un hogar que no debe gastar en servicios de cuidado, traslado de los niños al hogar y la escuela, servicio doméstico. Eventualmente esto podría cuantificarse en la medida de los gastos medios de los hogares dada la presencia de ama de casa.
+	\subsection{Problema   de   la   Unidad   Espacial   Modificable   (PUEM) y base cartográfica}
 
-imputacion de valores en EPH
-
-Fuentes de informacion (dudas sobre la EPH, Censo)
-
-Base cartografica para el AGBA a construir
-
-No hay vector de probabilidades de inclusión en EPH por secreto estadístico
 
 Radios censales - Unidades gepgráficas modificables
 
-dos cuestionarios, uno ampliado muestral con jubilacion (Metodología art INVI en prensa.docx)
-
-perciben rentas, estudiantes etc
-
-sensibilidad a outliers del metodo
 	
 	\section{Instrumentos computacionales}
-	- REDATAM
-	- R
-	- Python
-	- QGIS
+	
+El presente trabajo utiliza el software \textit{REDATAM} par extracción y procesamiento de datos censales. Redatam es el acrónimo de REcuperación de DATos para Áreas pequeñas por Microcomputador.  El programa utiliza una base de datos jerárquica comprimida, que se puede crear en R+SP y que contiene microdatos y/o información agregada con millones de registros de personas, viviendas, manzanas de ciudades o cualquier división administrativa de un país. Es posible definir, a partir de una base de datos, cualquier área geográfica de interés (desde manzanas de una ciudad) o combinaciones de esas áreas, crear nuevas variables, obtener varios tipos de tabulados y exportar salidas a otros softwares. Los datos de diferentes niveles geográficos pueden ser combinados jerárquicamente para crear variables agregadas, y los resultados pueden desplegarse en mapas desde Redatam o transferirse a un Sistema de Información Geográfica (SIG). Todas las versiones de Redatam han sido desarrolladas y mantenidas por el Centro Latinoamericano y Caribeño de Demografía (CELADE), que es la División de Población de la CEPAL. Sin embargo es necesario mencionar las limitaciones que tiene a la hora de implementar diferentes técnicas. El repertorio de técnicas a utilizar sobre datos censales se encuentra limitado a aquellas disponibles en el software. Por eso, técnicas como análisis factorial o clusters solo pueden realizarse por fuera de \textit{REDATAM} sobre datos agregados para las unidades espaciales disponibles en el software. 
+
+Para procesamiento de la EPH se utilizo el lenguaje de programación \textit{Python}, un lenguaje de programación interpretado multiparadigma, ya que soporta orientación a objetos, programación imperativa y, en menor medida, programación funcional. Puntualmente en lo relacionado al modelo de regresión se utilizaron los paquetes de software de licencia libre \textit{Scikit-learn} y \textit{SciPy}. Estos paquetes permiten implementar técnicas de copmutación científica y machine learning en \textit{Python}. Puntualmente dentro de \textit{SciPy}, se encuentra el módulo \textit{Statsmodels} que permite implementar la técnica de regresión múltiple con ponderadores (Weighted Least Squares). La totalidad de este trabajo, los códigos fuentes para la descarga y procesamiento de datos, se encuentra documentada online con licencia libre en la plataforma \textit{GitHub} bajo el usuario \textit{alephcero}. Esto permite chequear y reproducir este trabajo en su totalidad.
+
+Finalmente la cartografía y visualización de datos fue llevada adelante utilizando los paquetes de software \textit{QGIS} y la plataforma online \textit{CARTO}. \textit{QGIS} o \textit{Quantum GIS} es un Sistema de Información Geográfica (SIG) de código libre desarrollado por Fundación OSGeo y permite manejar formatos raster y vectoriales a través de las bibliotecas GDAL y OGR, así como bases de datos de diversos tipos. \textit{CARTO}  es una plataforma de computación en la nube de Software as a Service (SaaS) que proporciona herramientas SIG y de mapeo web para su visualización en un navegador web. Es un software de código abierto basado en el motor de bases de datos PostgreSQL  y su módulo para operaciones de SIG (PostGIS). 
+
