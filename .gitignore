@@ -289,3 +289,7 @@ ENV/
 
 #python
 *.pyc
+
+#QGIS
+
+*.qgs~
