@@ -360,7 +360,8 @@ con sus mismos años de escolaridad. En general, todos los perceptores tienen un
 
 El \textit{Valor de los Años de Escolaridad en el mercado laboral} (VAE) se determinó del siguiente modo: se asignó una base arbitraria de valor 7 para el nivel educativo primaria completa (es decir, 7 años de escolaridad aprobados). A partir de este valor índice, se realiza el mismo procedimiento comparativo, comparando las diferencias para cada año de escolaridad frente a esa base 7. Sus valores pueden consultarse en la tabla \ref{tab:tableVAE2001}
  
- 	\section{Autocorrelación espacial}
+% 	\section{Autocorrelación espacial}
+% 	ver de poner aca i de morans y getis ord G*. Uno y cual? o ambos? capitulo 4 de introduccion 
 
 	\section{Desafios metodológicos}
 	
@@ -394,17 +395,57 @@ Por último, existe la sospecha de subdeclaración de ingresos en la EPH, en esp
 Los modelos de regresión lineales tienen como una de sus principales desventajas, la extrema sensibilidad a valores extremos u outliers. En el caso del ingreso, la distribución del mismo dista mucho de asemejarse a la distribución normal y presenta casos extremos, tanto en el tramo inferior como superior. Estos casos pueden influir en el análisis. Sin embargo, una cuidada estrategia de detección de outliers puede disminuir este impacto. La remoción de outliers puede ser justificada para el análisis de distribución del ingreso. Para los casos de ingreso extraordinariamente altos, los mismos representan una porción muy pequeña. En el caso de los muy bajos ingresos, se debe tener más cuidado  ya que la asimetría de la distribución hace representen una proporción algo mayor. Sin embargo, se puede plantear el interrogante sobre los hogares que registran nulos ingresos en un contexto de una aglomeración urbana como el AGBA. Un hogar con nula percepción de ingresos puede ser considerado una situación coyuntural que amerita no sea considerado en el análisis.  
 
 
-	\subsection{Problema   de   la   Unidad   Espacial   Modificable   (PUEM) y base cartográfica}
+	\subsection{La falacia ecológica y el Problema   de   la   Unidad   Espacial   Modificable   (PUEM)}
 
 
-Radios censales - Unidades gepgráficas moadificables
+En la medida en que este trabajo utiliza como unidades los radios censales del Censo 2010, se ve afectado por dos tipos de problemas, de diferente naturaleza aunque relacionados entre si: \textit{la falacia ecológica} y el \textit{Problema   de   la   Unidad   Espacial   Modificable   (PUEM)} {\cite{openshaw1977, openshaw1984}}. Estos problemas surgen cuando la variación dentro de unidad espacial utilizada se pierde si el área es más grande que las características individuales que contiene. Esta sección explora estos dos conjuntos de conceptos.
+ 
+	\subsubsection{La falacia ecológica}
 
+La falacia ecológica se refiere al problema de hacer inferencias sobre individuos a partir de datos agregados. Por ejemplo, no es probable que todas las personas en un radio censal compartan las mismas características. Mientras que un hogar puede tener un alto valor del índice CAPECO, otro hogar puede tener un valor bajo. Dado que solo podemos obtener resultados a nivel de radio censal, nuestro trabajo se verá fuertemente influenciado por la medida de tendencia central que utilicemos para describir el comportamiento típico del radio censal: mediana, moda o media. Aunque también se puede obtener medidas de la variabilidad de la variable para ver la amplitud o dispersión de los valores de la misma en cada radio mediante la varianza o el desvío estándar. En este punto también nos confrontamos con las limitaciones del software utilizado \textit{REDATAM}. En pos de preservar el secreto estadístico, se utiliza dicho software que solo permite obtener estas medidas y no otras. Idealmente podríamos obtener la distribución por percentiles, u obtener que tipo de distribución encaja en los datos para cada radio, y los parámetros de dicha distirbución, como puede ser chequear si el comportamiento de la variable para cada radio sigue la distirbución normal o no y obtener su media y desvío estándar. 
+
+	
+	\subsubsection{Problema   de   la   Unidad   Espacial   Modificable   (PUEM)}
+	
+El espacio geográfico de la AGBA puede dividirse en un número infinito de formas. En la práctica, es frecuente que los datos agregados sobre un solo conjunto de unidades de superficie estén disponibles. En el caso del Censo Argentino, la unidad minima para la que se puede obtener información es el radio censal. Puede ser que ningún conjunto de zonas tenga un significado intrínseco sobre las poblaciones subyacentes y que las unidades sean "modificables". Esta es nuestra situación. Los radios censales no constituyen una geografía con un significado intrínseco sobre las poblaciones subyacentes, son más bien una división administrativa del espacio. Su tamaño está definido por la cantidad de viviendas que contienen: una fracción censal contiene un promedio de 5000 viviendas y un radio contiene un promedio de 300. Son unidades censales definidas por un espacio territorial con límites geográficos y una determinada cantidad de unidades de viviendas a relevar. Su razón de eser es más operativo-logística que estadístico-geográfica. Corresponden a distintos niveles de la estructura censal y determinar cargas equilibradas para cada uno de ellos asegura un mejor control de la cobertura territorial, facilita la distribución y recuperación de los materiales censales y determina en gran parte la calidad y el buen desarrollo del operativo \cite{ipec_a}.
+
+El problema que surge se denomina el \textit{Problema de la unidad superficial modificable (PUEM)}. El PUEM se compone de dos partes:
+
+\begin{itemize}
+	
+	\item \textbf{Efecto de escala:} Los análisis estadísticos basados en datos agregados en áreas de diferentes tamaños producirán resultados diferentes. No es lo mismo realizar un análisis a nivel de fracción que de radio o departamento. En nuestro caso, por ejemplo, los parámetros del modelo subyacente al CAPECO se obtienen seleccionando el AGBA como área. De escoger solo la CABA, los parámetros serían otros.
+	
+	\item  \textbf{El efecto de zonificación:} Dos conjuntos de zonas pueden tener las mismas áreas o áreas similares, pero pueden variar formas y análisis muy diferentes basados en dos conjuntos de zonas. En nuestro caso algunos radios censales presentan un inconveniente en términos de zonificación. En zonas de baja densidad poblacional, el resultado de aplicar el procedimiento administrativo de radios censales puede producir radios de enorme extensión donde solo una parte de ellos contiene efectivamente las viviendas que fueron censadas. Esto será analizado con mayor profundidad en el apartado sobre Cartografía (\ref{cartografia}).  
+
+\end{itemize}
+
+\begin{figure}[ht]
+	\centering
+	\textbf{Efecto de escala}\par\medskip
+	\includegraphics[scale = 0.5]{../img/capitulo3/escala.png}
+	\caption{Como se puede observar en la figura, la información agregada ofrece una imagen de relativa homogeneidad en los bloques de la derecha del recuadro con valores similares (651 y 641), pero que al analizar su composición se observan los diferentes comportamientos dentro de cada bloque. Mientras que el bloque superior tiene una celda con un valor relativamente más alto que el resto (169), el bloque superior tiene dos grupos de celdas con valores similares entre ellas aunque diferentes con las otras dos (162 y 163 versus 158 y 158)}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\textbf{Efecto de zonificación}\par\medskip
+	\includegraphics[scale = 0.5]{../img/capitulo3/zonificacion.png}
+	\caption{En la figura se puede observar cómo las diferentes formas de dividir el espacio puede ofrecer valores diferentes de la variable}
+\end{figure}
+	
+	Figuras tomadas de \cite{loyd}.
+	
+	\subsection{Base cartográfica} \label{cartografia}
+	
+	
 	
 	\section{Instrumentos computacionales}
 	
 El presente trabajo utiliza el software \textit{REDATAM} par extracción y procesamiento de datos censales. Redatam es el acrónimo de REcuperación de DATos para Áreas pequeñas por Microcomputador.  El programa utiliza una base de datos jerárquica comprimida, que se puede crear en R+SP y que contiene microdatos y/o información agregada con millones de registros de personas, viviendas, manzanas de ciudades o cualquier división administrativa de un país. Es posible definir, a partir de una base de datos, cualquier área geográfica de interés (desde manzanas de una ciudad) o combinaciones de esas áreas, crear nuevas variables, obtener varios tipos de tabulados y exportar salidas a otros softwares. Los datos de diferentes niveles geográficos pueden ser combinados jerárquicamente para crear variables agregadas, y los resultados pueden desplegarse en mapas desde Redatam o transferirse a un Sistema de Información Geográfica (SIG). Todas las versiones de Redatam han sido desarrolladas y mantenidas por el Centro Latinoamericano y Caribeño de Demografía (CELADE), que es la División de Población de la CEPAL. Sin embargo es necesario mencionar las limitaciones que tiene a la hora de implementar diferentes técnicas. El repertorio de técnicas a utilizar sobre datos censales se encuentra limitado a aquellas disponibles en el software. Por eso, técnicas como análisis factorial o clusters solo pueden realizarse por fuera de \textit{REDATAM} sobre datos agregados para las unidades espaciales disponibles en el software. 
 
+
 Para procesamiento de la EPH se utilizo el lenguaje de programación \textit{Python}, un lenguaje de programación interpretado multiparadigma, ya que soporta orientación a objetos, programación imperativa y, en menor medida, programación funcional. Puntualmente en lo relacionado al modelo de regresión se utilizaron los paquetes de software de licencia libre \textit{Scikit-learn} y \textit{SciPy}. Estos paquetes permiten implementar técnicas de copmutación científica y machine learning en \textit{Python}. Puntualmente dentro de \textit{SciPy}, se encuentra el módulo \textit{Statsmodels} que permite implementar la técnica de regresión múltiple con ponderadores (Weighted Least Squares). La totalidad de este trabajo, los códigos fuentes para la descarga y procesamiento de datos, se encuentra documentada online con licencia libre en la plataforma \textit{GitHub} bajo el usuario \textit{alephcero}. Esto permite chequear y reproducir este trabajo en su totalidad.
+
 
 Finalmente la cartografía y visualización de datos fue llevada adelante utilizando los paquetes de software \textit{QGIS} y la plataforma online \textit{CARTO}. \textit{QGIS} o \textit{Quantum GIS} es un Sistema de Información Geográfica (SIG) de código libre desarrollado por Fundación OSGeo y permite manejar formatos raster y vectoriales a través de las bibliotecas GDAL y OGR, así como bases de datos de diversos tipos. \textit{CARTO}  es una plataforma de computación en la nube de Software as a Service (SaaS) que proporciona herramientas SIG y de mapeo web para su visualización en un navegador web. Es un software de código abierto basado en el motor de bases de datos PostgreSQL  y su módulo para operaciones de SIG (PostGIS). 
 
