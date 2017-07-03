@@ -1,0 +1,73 @@
+\expandafter\ifx\csname doTocEntry\endcsname\relax \expandafter\endinput\fi 
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-1000}{QQ2-1-1}{Contents}}{2}\relax 
+\doTocEntry\tocchapter{1}{\csname a:TocLink\endcsname{1}{x1-20001}{QQ2-1-2}{Introducci\IeC {\'o}n}}{3}\relax 
+\doTocEntry\tocsection{1.1}{\csname a:TocLink\endcsname{1}{x1-30001.1}{QQ2-1-3}{El problema de la distribuci\IeC {\'o}n espacial del ingreso}}{3}\relax 
+\doTocEntry\toclof{1.1}{\csname a:TocLink\endcsname{1}{x1-30011}{}{\ignorespaces Aglomeraci\IeC {\'o}n Gran Buenos Aires - 2010. Fuente: INDEC}}{figure}\relax 
+\doTocEntry\tocsection{1.2}{\csname a:TocLink\endcsname{1}{x1-40001.2}{QQ2-1-5}{Antecedentes}}{8}\relax 
+\doTocEntry\tocsubsection{1.2.1}{\csname a:TocLink\endcsname{1}{x1-50001.2.1}{QQ2-1-6}{El Tesoro: el ingreso y su distribuci\IeC {\'o}n}}{8}\relax 
+\doTocEntry\tocsubsection{1.2.2}{\csname a:TocLink\endcsname{1}{x1-60001.2.2}{QQ2-1-7}{El Mapa: el papel del territorio en la distribuci\IeC {\'o}n del ingreso}}{10}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-70001.2.2}{QQ2-1-8}{Los primeros mapas: los estudios de la ecolog\IeC {\'\i }a urbana}}{10}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-80001.2.2}{QQ2-1-9}{El mapa del ingreso es el mapa del conflicto: la escuela cr\IeC {\'\i }tica}}{13}\relax 
+\doTocEntry\tocsubsection{1.2.3}{\csname a:TocLink\endcsname{1}{x1-90001.2.3}{QQ2-1-10}{La Br\IeC {\'u}jula: instrumentos para medir la distribuci\IeC {\'o}n del ingreso}}{17}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-100001.2.3}{QQ2-1-11}{El \IeC {\'\i }ndice de Necesidades B\IeC {\'a}sicas Insatisfechas (NBI)}}{18}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-110001.2.3}{QQ2-1-12}{El \IeC {\'I}ndice de Privaci\IeC {\'o}n Material de los Hogares (IPMH)}}{20}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-120001.2.3}{QQ2-1-13}{Los mapas del ingreso}}{22}\relax 
+\doTocEntry\toclof{1.2}{\csname a:TocLink\endcsname{1}{x1-120012}{}{\ignorespaces Charles Booth. Poverty maps and police notebooks. Londres 1889. London School of Economics and Political Science Library}}{figure}\relax 
+\doTocEntry\toclof{1.3}{\csname a:TocLink\endcsname{1}{x1-120023}{}{\ignorespaces Agnes Sinclair Holbrook, \IeC {\textquotedblleft }Wage Map No. 1,\IeC {\textquotedblright } from Hull-House Maps and Papers, 1895. (Norman B. Leventhal Map Center at the Boston Public Library) }}{figure}\relax 
+\doTocEntry\toclof{1.4}{\csname a:TocLink\endcsname{1}{x1-120034}{}{\ignorespaces Horacio Torres. El Mapa Social en Buenos Aires 1943 - 1947 y 1960. Buenos Aires 1960. Desarrollo Econ\IeC {\'o}mico Vol. XVIII No 70 1978}}{figure}\relax 
+\doTocEntry\toclof{1.5}{\csname a:TocLink\endcsname{1}{x1-120045}{}{\ignorespaces Mariana Marcos. Factor Estructura sociodemogr\IeC {\'a}fica predominante. AGBA, 2001. Estructura Socioespacial de la AGBA. Geo UERJ, Rio de Janeiro, n. 26, 2015}}{figure}\relax 
+\doTocEntry\tocsection{1.3}{\csname a:TocLink\endcsname{1}{x1-130001.3}{QQ2-1-18}{Marco te\IeC {\'o}rico}}{35}\relax 
+\doTocEntry\tocsubsection{1.3.1}{\csname a:TocLink\endcsname{1}{x1-140001.3.1}{QQ2-1-19}{El Tesoro: El ingreso}}{35}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-150001.3.1}{QQ2-1-20}{La familia como instituci\IeC {\'o}n social intermedia }}{36}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-160001.3.1}{QQ2-1-21}{El ingreso familiar}}{37}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-170001.3.1}{QQ2-1-22}{El hogar como unidad dom\IeC {\'e}stica}}{40}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-180001.3.1}{QQ2-1-23}{El ingreso monetario per c\IeC {\'a}pita del hogar}}{41}\relax 
+\doTocEntry\tocsubsection{1.3.2}{\csname a:TocLink\endcsname{1}{x1-190001.3.2}{QQ2-1-24}{El Mapa: La distribuci\IeC {\'o}n del ingreso en el espacio urbano}}{42}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-200001.3.2}{QQ2-1-25}{El concepto de espacio}}{42}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-210001.3.2}{QQ2-1-26}{El espacio urbano}}{43}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-220001.3.2}{QQ2-1-27}{Distribuci\IeC {\'o}n espacial desigual del ingreso per c\IeC {\'a}pita de los hogares}}{45}\relax 
+\doTocEntry\tocsubsection{1.3.3}{\csname a:TocLink\endcsname{1}{x1-230001.3.3}{QQ2-1-28}{La Brujula: El ingreso monetario y su vinculaci\IeC {\'o}n con otros atributos de los hogares y las personas}}{49}\relax 
+\doTocEntry\tocchapter{2}{\csname a:TocLink\endcsname{1}{x1-240002}{QQ2-1-29}{Metodolog\IeC {\'\i }a}}{52}\relax 
+\doTocEntry\tocsection{2.1}{\csname a:TocLink\endcsname{1}{x1-250002.1}{QQ2-1-30}{Estructura metodol\IeC {\'o}gica}}{52}\relax 
+\doTocEntry\tocsection{2.2}{\csname a:TocLink\endcsname{1}{x1-260002.2}{QQ2-1-31}{El Tesoro: los datos de ingreso, sus fuentes y las unidades de an\IeC {\'a}lisis}}{52}\relax 
+\doTocEntry\tocsubsection{2.2.1}{\csname a:TocLink\endcsname{1}{x1-270002.2.1}{QQ2-1-32}{Las fuentes de datos}}{52}\relax 
+\doTocEntry\toclot{2.1}{\csname a:TocLink\endcsname{1}{x1-270011}{}{\ignorespaces Comparaci\IeC {\'o}n de cobertura y periodicidad entre Censos y Encuestas }}{table}\relax 
+\doTocEntry\tocsubsection{2.2.2}{\csname a:TocLink\endcsname{1}{x1-280002.2.2}{QQ2-1-34}{Comparabilidad en la cobertura tem\IeC {\'a}tica de las fuentes}}{56}\relax 
+\doTocEntry\toclot{2.2}{\csname a:TocLink\endcsname{1}{x1-280012}{}{\ignorespaces Variables comparables en Censo y EPH}}{table}\relax 
+\doTocEntry\tocsubsection{2.2.3}{\csname a:TocLink\endcsname{1}{x1-290002.2.3}{QQ2-1-36}{Las unidades de an\IeC {\'a}lisis}}{62}\relax 
+\doTocEntry\tocsection{2.3}{\csname a:TocLink\endcsname{1}{x1-300002.3}{QQ2-1-37}{El Mapa: cartograf\IeC {\'\i }a de la AGBA}}{63}\relax 
+\doTocEntry\toclof{2.1}{\csname a:TocLink\endcsname{1}{x1-300011}{}{\ignorespaces Tipolog\IeC {\'\i }a de calles seg\IeC {\'u}n Open Street Map}}{figure}\relax 
+\doTocEntry\toclof{2.2}{\csname a:TocLink\endcsname{1}{x1-300202}{}{\ignorespaces La figura muestra una calle de OSM que atraviesa 3 radios censales}}{figure}\relax 
+\doTocEntry\toclof{2.3}{\csname a:TocLink\endcsname{1}{x1-300213}{}{\ignorespaces La figura muestra como cada tramo de calle se asign\IeC {\'o} a su radio correspondiente}}{figure}\relax 
+\doTocEntry\toclof{2.4}{\csname a:TocLink\endcsname{1}{x1-300224}{}{\ignorespaces La figura muestra como luego se repite el proceso con otra calle y se disuelven los pol\IeC {\'\i }gonos en base al radio al que pertenecen}}{figure}\relax 
+\doTocEntry\tocsection{2.4}{\csname a:TocLink\endcsname{1}{x1-310002.4}{QQ2-1-42}{La Br\IeC {\'u}jula: los modelos de regresi\IeC {\'o}n m\IeC {\'u}ltiple y el CAPECO}}{76}\relax 
+\doTocEntry\tocsubsection{2.4.1}{\csname a:TocLink\endcsname{1}{x1-320002.4.1}{QQ2-1-43}{Modelos de regresi\IeC {\'o}n m\IeC {\'u}ltiples}}{76}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-330002.4.1}{QQ2-1-44}{Estimaci\IeC {\'o}n de los par\IeC {\'a}metros del modelo}}{76}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-340002.4.1}{QQ2-1-45}{Los supuestos de Gauss-Markov}}{79}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-350002.4.1}{QQ2-1-46}{Resultados}}{81}\relax 
+\doTocEntry\toclot{2.3}{\csname a:TocLink\endcsname{1}{x1-350013}{}{\ignorespaces Resumen de las formas funcionales en las que se emplean logaritmos y lectura de los par\IeC {\'a}metros del modelo}}{table}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-360002.4.1}{QQ2-1-48}{Regresores categ\IeC {\'o}ricos y dicot\IeC {\'o}micos }}{85}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-370002.4.1}{QQ2-1-49}{Interacci\IeC {\'o}n}}{85}\relax 
+\doTocEntry\toclof{2.5}{\csname a:TocLink\endcsname{1}{x1-370015}{}{\ignorespaces En el gr\IeC {\'a}fico se observa la relaci\IeC {\'o}n lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario.En el gr\IeC {\'a}fico se observa la relaci\IeC {\'o}n lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario. Solo que los 2 a\IeC {\~n}os adicionales de escolaridad entre 14 y 16 implica un salario adicional de 5000 pesos mientras que los 2 a\IeC {\~n}os adicionales de 0 a 2 apenas marcan una diferencia.En el gr\IeC {\'a}fico se observa la relaci\IeC {\'o}n lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario tanto para var\IeC {\'o}n como para mujer. Solo que la mujer parte de un salario inferior, pero aumenta al mismo ritmo con el aumento de la escolaridad. En el gr\IeC {\'a}fico se observa la relaci\IeC {\'o}n lineal entre escolaridad y salario de modo que a mayor escolaridad mayor salario tanto para var\IeC {\'o}n como para mujer. Solo que la mujer adem\IeC {\'a}s de partir de un salario inferior, aumenta a un ritmo diferente (menor) con el aumento de la escolaridad, lo cual ampl\IeC {\'\i }a la brecha en los tramos superiores de escolaridad}}{figure}\relax 
+\doTocEntry\tocsubsection{2.4.2}{\csname a:TocLink\endcsname{1}{x1-380002.4.2}{QQ2-1-51}{El modelo detr\IeC {\'a}s del indice CAPECO}}{89}\relax 
+\doTocEntry\tocsection{2.5}{\csname a:TocLink\endcsname{1}{x1-390002.5}{QQ2-1-52}{Desafios metodol\IeC {\'o}gicos}}{93}\relax 
+\doTocEntry\tocsubsection{2.5.1}{\csname a:TocLink\endcsname{1}{x1-400002.5.1}{QQ2-1-53}{Inactivos con rentas}}{93}\relax 
+\doTocEntry\tocsubsection{2.5.2}{\csname a:TocLink\endcsname{1}{x1-410002.5.2}{QQ2-1-54}{Ausencia de informaci\IeC {\'o}n}}{94}\relax 
+\doTocEntry\tocsubsection{2.5.3}{\csname a:TocLink\endcsname{1}{x1-420002.5.3}{QQ2-1-55}{Outliers}}{95}\relax 
+\doTocEntry\tocsubsection{2.5.4}{\csname a:TocLink\endcsname{1}{x1-430002.5.4}{QQ2-1-56}{La falacia ecol\IeC {\'o}gica y el Problema de la Unidad Espacial Modificable (PUEM)}}{95}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-440002.5.4}{QQ2-1-57}{La falacia ecol\IeC {\'o}gica}}{95}\relax 
+\doTocEntry\tocsubsubsection{}{\csname a:TocLink\endcsname{1}{x1-450002.5.4}{QQ2-1-58}{Problema de la Unidad Espacial Modificable (PUEM)}}{96}\relax 
+\doTocEntry\toclof{2.6}{\csname a:TocLink\endcsname{1}{x1-450016}{}{\ignorespaces Como se puede observar en la figura, la informaci\IeC {\'o}n agregada ofrece una imagen de relativa homogeneidad en los bloques de la derecha del recuadro con valores similares (651 y 641), pero que al analizar su composici\IeC {\'o}n se observan los diferentes comportamientos dentro de cada bloque. Mientras que el bloque superior tiene una celda con un valor relativamente m\IeC {\'a}s alto que el resto (169), el bloque superior tiene dos grupos de celdas con valores similares entre ellas aunque diferentes con las otras dos (162 y 163 versus 158 y 158)}}{figure}\relax 
+\doTocEntry\toclof{2.7}{\csname a:TocLink\endcsname{1}{x1-450027}{}{\ignorespaces En la figura se puede observar c\IeC {\'o}mo las diferentes formas de dividir el espacio puede ofrecer valores diferentes de la variable}}{figure}\relax 
+\doTocEntry\tocsection{2.6}{\csname a:TocLink\endcsname{1}{x1-460002.6}{QQ2-1-61}{Instrumentos computacionales}}{103}\relax 
+\doTocEntry\tocchapter{3}{\csname a:TocLink\endcsname{1}{x1-470003}{QQ2-1-62}{Anexo}}{105}\relax 
+\doTocEntry\tocsection{3.1}{\csname a:TocLink\endcsname{1}{x1-480003.1}{QQ2-1-63}{Coeficientes CAPECO}}{105}\relax 
+\doTocEntry\tocsubsection{3.1.1}{\csname a:TocLink\endcsname{1}{x1-490003.1.1}{QQ2-1-64}{Coeficientes CAPECO originales - 2001}}{105}\relax 
+\doTocEntry\toclot{3.1}{\csname a:TocLink\endcsname{1}{x1-490011}{}{\ignorespaces Tabla de coeficientes de Condici\IeC {\'o}n de Percepci\IeC {\'o}n seg\IeC {\'u}n edad regi\IeC {\'o}n y sexo utilizados para la construcci\IeC {\'o}n de CAPECO 2001}}{table}\relax 
+\doTocEntry\toclot{3.2}{\csname a:TocLink\endcsname{1}{x1-490022}{}{\ignorespaces Tabla de transformaci\IeC {\'o}n de los a\IeC {\~n}os de escolaridad aprobados respecto del valor en el mercado laboral del s\IeC {\'e}ptimo a\IeC {\~n}o de educaci\IeC {\'o}n de un var\IeC {\'o}n de 35 a\IeC {\~n}os y m\IeC {\'a}s de GBA. CAPECO 2001}}{table}\relax 
+\doTocEntry\toclot{3.3}{\csname a:TocLink\endcsname{1}{x1-490033}{}{\ignorespaces Tabla de escala de adulto equivalente utilizados para la construcci\IeC {\'o}n de CAPECO 2001}}{table}\relax 
+\doTocEntry\tocsubsection{3.1.2}{\csname a:TocLink\endcsname{1}{x1-500003.1.2}{QQ2-1-68}{Coeficientes CAPECO actualizado - 2010}}{114}\relax 
+\doTocEntry\tocsubsection{3.1.3}{\csname a:TocLink\endcsname{1}{x1-510003.1.3}{QQ2-1-69}{Adulto equivalente CAPECO original - 2001}}{114}\relax 
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-520003.1.3}{QQ2-1-70}{References}}{115}\relax 
+\doTocEntry\tocchapter{}{\csname a:TocLink\endcsname{1}{Q1-1-71}{}{References}}{115}\relax 
+\par 
