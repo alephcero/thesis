@@ -119,11 +119,63 @@ El hecho de que el diseño de fracciones y radios no responda a fines investigat
 
 	\section{El Mapa: cartografía de la AGBA}\label{cap2-mapa}
 	
-Se entiende por AGBA, desde el punto de vista de límites físicos, "al área geográfica delimitada por la 'envolvente de población'; lo que también suele denominarse 'mancha urbana'" \cite{indec2003e}. A su vez, se entiende por "envolvente de población" una línea que marca el límite hasta donde se extiende la continuidad de viviendas urbanas \cite{indec2003e}. De acuerdo con Vapñarsky, la "mancha urbana" se define como la concentración de edificios vinculados entre sí por calles \cite{vapniarsky1995,vapniarsky1998}. Desde el punto de vista funcional, se define como la "entidad urbana", que es ámbito de desplazamientos cotidianos de la población, en especial de movimientos pendulares de la población económicamente activa entre su lugar de residencia y el de trabajo \cite{bertoncello,torres1990}. Este criterio de delimitación se mueve con el tiempo y, por cierto, no respeta las delimitaciones administrativas de los municipios.  Estas peculiaridades y complicaciones que implica trabajar con unidades espaciales, serán consideradas con mayor precisión en el apartado metodológico. Tal cual la configuración que la Aglomeración Gran Buenos Aires asume en 2010, el mismo abarca la Ciudad de Buenos Aires y se extiende sobre el territorio de la Provincia de Buenos Aires, integrando la superficie total de 14 partidos, más la superficie parcial de otros 16 (esto sin contar una muy pequeña participación de los partidos de Cañuelas y La Plata).
+Se entiende por AGBA, desde el punto de vista de límites físicos, "al área geográfica delimitada por la 'envolvente de población'; lo que también suele denominarse 'mancha urbana'" \cite{indec2003e}. A su vez, se entiende por "envolvente de población" una línea que marca el límite hasta donde se extiende la continuidad de viviendas urbanas \cite{indec2003e}. De acuerdo con Vapñarsky, la "mancha urbana" se define como la concentración de edificios vinculados entre sí por calles \cite{vapniarsky1995,vapniarsky1998}. Desde el punto de vista funcional, se define como la "entidad urbana", que es ámbito de desplazamientos cotidianos de la población, en especial de movimientos pendulares de la población económicamente activa entre su lugar de residencia y el de trabajo \cite{bertoncello,torres1990}. Este criterio de delimitación se mueve con el tiempo y, por cierto, no respeta las delimitaciones administrativas de los municipios.  Tal cual la configuración que la Aglomeración Gran Buenos Aires asume en 2010, la misma abarca la Ciudad de Buenos Aires y se extiende sobre el territorio de la Provincia de Buenos Aires, integrando la superficie total de 14 partidos, más la superficie parcial de otros 16 (esto sin contar una muy pequeña participación de los partidos de Cañuelas y La Plata).
+
+Esto nos enfrenta a un problema de naturaleza doble. Por un lado, la envolvente de población no es del todo clara en los límites de la AGBA. En esta situación nos encontramos con radios censales de enorme extensión de los cuáles, solo una pequeña porción se encuentra efectivamente poblada. Esto sucede en particular en las zonas que no son consideradas rurales ni urbanas. Por el otro, ya dentro de las zonas urbanas consolidadas del AGBA, existen porciones del territorio que tampoco se encuentran efectivamente pobladas en toda su extensión. Tal es el caso de grandes parques, puertos, zonas industriales, terrenos ferrioviarios y otros. 
+
+Esta situación tiene por resultado un conjunto de radios censales de enorme extensión territorial y sin embargo sin viviendas en los mismos, salvo por una pequeña porción. El problema radica entonces en poder delimitar ese área de un modo que otros investigadores puedan observar el proceso, fiscalizarlo y mejorarlo.
+
+La solución propuesta en el marco de este trabajo es utilizar la información disponible en \textit{Open Street Map } (OSM), una de las pocas fuentes de información geografía actualizada y de  acceso público en Argentina. OSM es una plataforma cartográfica online digital de licencia libre donde distintos usuarios editan y cargan información, principalmente calles y puntos de interés. Al ser los propios usuarios los que elaboran los mapas, esto puede ser fuente de error. Sin embargo, esta   información   es   validada   por   una   serie   de   aplicaciones (Keep Right, Osmose, JOSM, Validator, OSM Inspector, Maproulette) creadas  para  este propósito, además   de la colaboración de muchos usuarios que realizan chequeos y correcciones. Un trabajo reciente del Ministerio de energía y Minería de la Nación \cite{pino} utilizó también esta fuente para determinar localidades pobladas en el territorio nacional.
+
+Al igual que en el trabajo del Ministerio de Energía se toman los segmentos de calles de OSM sólo en  sus  tipologías  urbanas  (\textit{“Residential”},  \textit{“Pedestrian”}  y \textit{"Living street”}). En este trabajo se agrega el tipo \textit{"Footway"}. A su vez, se seleccionan los segmentos con menos de 2 km de longitud (para evitar incluir rutas o caminos cargados con una  tipología  incorrecta) \cite{pino}.
+
+
+\begin{figure}[!h]
+	\centering
+	\textbf{Tipología de calles de OSM}\par\medskip
+	\includegraphics[scale = 0.4]{../img/capitulo2/osm.png}
+	\caption{Tipología de calles según Open Street Map}
+\end{figure}
+
+El proceso puede ser resumido en las siguientes etapas:
+
+\begin{enumerate}
+	\item Descargar cartografía de Ciudad Autónoma de Buenos Aires (CABA) y Provincia de Buenos Aires (PBA).
+	\item Seleccionar los departamentos considerados por el INDEC como parte del AGBA.
+	\item Obtener información sobre total de población por radios censal y calcular la densidad poblacional.
+	\item Seleccionar aquellos radios censales con baja densidad o caracterizados como de zona mixta por la cédula censal.
+	\item Descargar calles de Open Street Map.
+	\item Seleccionar calles residenciales y asignarles un buffer de 100m.
+	\item Para cada radio censal seleccionado, obtener el area cubierta por calles residenciales
+	\item Seleccionar areas donde las calles residenciales conforme un entramado compacto.
+	\item Recortar para los radios seleccionados ese area, asignarles la indentificación del radio y descartar el resto del área.
+\end{enumerate}
+
+
+
+\begin{figure}[!ht]
+	\centering
+	\textbf{Calle de OSM y radios censales seleccionados}\par\medskip
+	\includegraphics[scale = 0.4]{../img/capitulo2/osm_1.png}
+	\caption{La figura muestra una calle de OSM que atraviesa 3 radios censales}
+\end{figure}
+\begin{figure}[!hb]
+	\centering
+	\textbf{Tramos de calle asignados a sus radios correspondientes}\par\medskip
+	\includegraphics[scale = 0.4]{../img/capitulo2/osm_2.png}
+	\caption{La figura muestra como cada tramo de calle se asignó a su radio correspondiente}
+\end{figure}
+\begin{figure}[!ht]
+	\centering
+	\textbf{2 polígonos de calles disueltos en base al radio al que pertenecen}\par\medskip
+	\includegraphics[scale = 0.4]{../img/capitulo2/osm_3.png}
+	\caption{La figura muestra como luego se repite el proceso con otra calle y se disuelven los polígonos en base al radio al que pertenecen}
+\end{figure}
+
+
+
 	
-	
-	
-	\section{La Brújula: los modelos de regresión múltiple y el CAPECO}\label{cap2-brujula}
+\section{La Brújula: los modelos de regresión múltiple y el CAPECO}\label{cap2-brujula}
 
 \subsection{Modelos de regresión múltiples}
 
@@ -435,9 +487,6 @@ El problema que surge se denomina el \textit{Problema de la unidad superficial m
 	
 	Figuras tomadas de \cite{loyd}.
 	
-	\subsection{Base cartográfica} \label{cartografia}
-	
-	
 	
 	\section{Instrumentos computacionales}
 	
@@ -447,5 +496,5 @@ El presente trabajo utiliza el software \textit{REDATAM} par extracción y proce
 Para procesamiento de la EPH se utilizo el lenguaje de programación \textit{Python}, un lenguaje de programación interpretado multiparadigma, ya que soporta orientación a objetos, programación imperativa y, en menor medida, programación funcional. Puntualmente en lo relacionado al modelo de regresión se utilizaron los paquetes de software de licencia libre \textit{Scikit-learn} y \textit{SciPy}. Estos paquetes permiten implementar técnicas de copmutación científica y machine learning en \textit{Python}. Puntualmente dentro de \textit{SciPy}, se encuentra el módulo \textit{Statsmodels} que permite implementar la técnica de regresión múltiple con ponderadores (Weighted Least Squares). La totalidad de este trabajo, los códigos fuentes para la descarga y procesamiento de datos, se encuentra documentada online con licencia libre en la plataforma \textit{GitHub} bajo el usuario \textit{alephcero}. Esto permite chequear y reproducir este trabajo en su totalidad.
 
 
-Finalmente la cartografía y visualización de datos fue llevada adelante utilizando los paquetes de software \textit{QGIS} y la plataforma online \textit{CARTO}. \textit{QGIS} o \textit{Quantum GIS} es un Sistema de Información Geográfica (SIG) de código libre desarrollado por Fundación OSGeo y permite manejar formatos raster y vectoriales a través de las bibliotecas GDAL y OGR, así como bases de datos de diversos tipos. \textit{CARTO}  es una plataforma de computación en la nube de Software as a Service (SaaS) que proporciona herramientas SIG y de mapeo web para su visualización en un navegador web. Es un software de código abierto basado en el motor de bases de datos PostgreSQL  y su módulo para operaciones de SIG (PostGIS). 
+Finalmente la cartografía y visualización de datos fue llevada adelante utilizando los paquetes de software \textit{QGIS} y la plataforma online \textit{CARTO} así como también las librerias \textit{Shapely} y \textit{Geopandas} de \textit{Python}. \textit{QGIS} o \textit{Quantum GIS} es un Sistema de Información Geográfica (SIG) de código libre desarrollado por Fundación OSGeo y permite manejar formatos raster y vectoriales a través de las bibliotecas GDAL y OGR, así como bases de datos de diversos tipos. \textit{CARTO}  es una plataforma de computación en la nube de Software as a Service (SaaS) que proporciona herramientas SIG y de mapeo web para su visualización en un navegador web. Es un software de código abierto basado en el motor de bases de datos PostgreSQL  y su módulo para operaciones de SIG (PostGIS). 
 
