@@ -66,6 +66,11 @@ def readEPHInd(trimestre, path):
     indRaw = dbf.to_dataframe()
     return indRaw
 
+def readEPHhog(trimestre, path):
+    #read file
+    dbf = simpledbf.Dbf5(path  + '/' + trimestre + '/Hogar_'+ trimestre +'.dbf', codec='latin1')
+    indRaw = dbf.to_dataframe()
+    return indRaw
 
 def cleanEPHInd(dataset):
     indClean = dataset.loc[dataset.REGION == 1,['CODUSU',
@@ -323,6 +328,7 @@ def runModel(dataset, income = 'lnIncome',
     
     #run model
     lm = sm.WLS(y, X, weights=1. / w).fit()
+    print lm.summary().as_latex()
     print lm.summary()
     for i in range(1,len(variables)+1):
         print 'x%d: %s' % (i,variables[i-1])
